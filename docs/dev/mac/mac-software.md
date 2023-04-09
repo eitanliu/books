@@ -77,6 +77,20 @@ export PATH=$PATH:$FLUTTER_HOME/bin:$DART_HOME/bin:$HOME/.pub-cache/bin
 alias idea-ce="open -a /Applications/IntelliJ\ IDEA\ CE.app"
 ```
 
+## 输入法
+
+[RIME | 中州韵输入法引擎](https://rime.im/)
+
+Mac [鼠须管 Squirrel](https://github.com/rime/squirrel/releases/latest)
+
+Win [小狼毫 Weasel](https://github.com/rime/weasel/releases/latest)
+
+Linux [fcitx-rime](https://github.com/fcitx/fcitx-rime)，[ibus-rime](https://github.com/rime/home/wiki/RimeWithIBus)
+
+Android [同文 Tongwen](https://github.com/osfans/trime)
+
+在线 [My RIME](https://github.com/LibreService/my_rime)
+
 ## 文件备份
 
 [文件备份还能怎么玩？试试这条命令](https://sspai.com/post/41967)
@@ -98,7 +112,7 @@ sudo tmutil setdestination -p /Volumes/backup/
 
 `Folx 5`、`FDM`、`Leech 3`、`uTorrent`、`Transmission`、`Aria2`
 
-## 引用
+## 参考
 
 [如何禁用HomeBrew 自动更新](https://juejin.cn/post/6931189341150674958)  
 

@@ -6,7 +6,7 @@
 
 Setting -> Keymap 
 
-## 常用功能
+### 常用功能
 
 | 名称             | 默认            | 功能             |
 | :--------------- | :-------------- | :--------------- |
@@ -19,7 +19,7 @@ Setting -> Keymap
 | Navigate Back    | cmd alt left    | 上次编辑位置     |
 | Navigate Forwar  | cmd alt right   | 下次编辑位置     |
 
-## 功能切换
+### 功能切换
 
 | 名称                | 默认                         | 功能           |
 | :------------------ | :--------------------------- | :------------- |
@@ -31,12 +31,29 @@ Setting -> Keymap
 | Select Next Tab     | cmd shift ]                  | 后一个文件     |
 | Close Tab           | cmd W                        | 关闭文件       |
 
+### 编辑器
+
+| 名称           | 默认         | 功能       |
+| :------------- | :----------- | :--------- |
+| Undo           | cmd Z        | 撤销       |
+| Redo           | cmd shift Z  | 重做       |
+| Toggle Cast    | cmd shift U  | 切换大小写 |
+| Join Line      | ctrl shift J | 合并下一行 |
+| Duplicate Line | cmd D        | 复制一行   |
+
 ### 系统冲突
 
-| 名称                  | 默认        | 建议        |
-| :-------------------- | :---------- | :---------- |
-| Find Action           | cmd shift A | cmd shift P |
-| Code Completion Basic | ctrl space  | alt .       |
+| 名称                       | 默认             | 建议         |
+| :------------------------- | :--------------- | :----------- |
+| Find Action                | cmd shift A      | cmd shift P  |
+| Code Completion Basic      | ctrl space       | alt .        |
+| Hierarchy Tool Window      | -                | ctrl shift H |
+| Build Tool Window          | -                | cmd alt 4    |
+| Dependencies Tool Window   | -                | cmd alt 5    |
+| Select Previous Tab        | cmd shift [      | alt shift [  |
+| Select Next Tab            | cmd shift ]      | alt shift ]  |
+| Select Previous Tab Editor | ctrl shift left  | ctrl shift [ |
+| Select Next Tab Editor     | ctrl shift right | ctrl shift ] |
 
 Project 焦点下 `ctrl alt left` 缩小展示宽度，`ctrl alt right` 增大展示宽度，`esc` 切换到编辑区域
 
