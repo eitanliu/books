@@ -43,17 +43,19 @@ Setting -> Keymap
 
 ### 系统冲突
 
-| 名称                       | 默认             | 建议         |
-| :------------------------- | :--------------- | :----------- |
-| Find Action                | cmd shift A      | cmd shift P  |
-| Code Completion Basic      | ctrl space       | alt .        |
-| Hierarchy Tool Window      | -                | ctrl shift H |
-| Build Tool Window          | -                | cmd alt 4    |
-| Dependencies Tool Window   | -                | cmd alt 5    |
-| Select Previous Tab        | cmd shift [      | alt shift [  |
-| Select Next Tab            | cmd shift ]      | alt shift ]  |
-| Select Previous Tab Editor | ctrl shift left  | ctrl shift [ |
-| Select Next Tab Editor     | ctrl shift right | ctrl shift ] |
+| 名称                         | 默认             | 建议         |
+| :--------------------------- | :--------------- | :----------- |
+| Find Action                  | cmd shift A      | cmd shift P  |
+| Code Completion Basic        | ctrl space       | alt .        |
+| Code Completion Type-Maching | ctrl shift space | alt shift .  |
+| Hierarchy Tool Window        | -                | cmd alt H    |
+| Build Tool Window            | -                | cmd alt 4    |
+| Dependencies Tool Window     | -                | cmd alt 5    |
+| Reveal in Finder             | -                | cmd alt R    |
+| Select Previous Tab          | cmd shift [      | alt shift [  |
+| Select Next Tab              | cmd shift ]      | alt shift ]  |
+| Select Previous Tab Editor   | ctrl shift left  | ctrl shift [ |
+| Select Next Tab Editor       | ctrl shift right | ctrl shift ] |
 
 Project 焦点下 `ctrl alt left` 缩小展示宽度，`ctrl alt right` 增大展示宽度，`esc` 切换到编辑区域
 
@@ -65,17 +67,19 @@ Switcher 窗口下 `ctrl shift`  配合 `left right up down` 快速选择文件�
 
 `Helpe -> Find Action` 输入 `Choose Boot Java Runtime` 切换Java运行时，选择一个带有 `xxx JetBrains Runtime With JCEF` 的，OK确认后会自动下载  
 
-## 代码风格
+## 配置修改
 
-### 缩进调整
+### 代码风格
 
 #### 取消注释在开头
 
-`Settings--Code Style--java-- Code Generation` ，取消 `Line comment at first columen`、`block comment at first column`
+`Settings->Code Style->java-> Code Generation` ，取消 `Line comment at first columen`、`block comment at first column`
 
+### 编辑器配置
 
+#### 显示空格
 
-## 配置修改
+`Settings -> Editor -> General -> Appearance ` 勾选 `Show whitespaces`
 
 ### 参数修改
 
@@ -107,7 +111,7 @@ Switcher 窗口下 `ctrl shift`  配合 `left right up down` 快速选择文件�
 
 ### 显示修改
 
-#### 显示内容使用
+#### 显示内存使用
 
 `View` -> `Appearance` -> `Stauts Bar Widgets` -> `Memory Indicator`
 
