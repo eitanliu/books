@@ -1,4 +1,4 @@
-
+# Spring 实战
 
 
 
@@ -8,7 +8,7 @@
 
 ## 软删除
 
-
+[spring data jpa 优雅的实现软删除](https://www.codedemo.club/spring-data-jpa-soft-delete/) [github](https://github.com/codedemo-club/spring-data-jpa-soft-delete)
 
 ## 分页
 

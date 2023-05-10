@@ -107,3 +107,7 @@ allprojects {
 ### 依赖一直下载失败
 
 ~/.gradle/caches/modules-2/metadata-x.xx 删除对于的包文件夹
+
+### 删除kapt缓存
+
+~/.gralde/caches/transforms-x, `x` 是 KAPT 版本号
