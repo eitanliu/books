@@ -115,7 +115,9 @@ Switcher 窗口下 `ctrl shift`  配合 `left right up down` 快速选择文件�
 
 `View` -> `Appearance` -> `Stauts Bar Widgets` -> `Memory Indicator`
 
+#### 文件路径栏显示位置
 
+`View` -> `Appearance` -> `Navigation Bar`
 
 ## 环境参数
 
