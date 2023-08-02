@@ -1,4 +1,4 @@
-import{_ as n,W as s,X as a,a0 as e}from"./framework-c8ebc670.js";const t={},p=e(`<h1 id="vuepress-hope-配置" tabindex="-1"><a class="header-anchor" href="#vuepress-hope-配置" aria-hidden="true">#</a> vuepress hope 配置</h1><h2 id="安装依赖" tabindex="-1"><a class="header-anchor" href="#安装依赖" aria-hidden="true">#</a> 安装依赖</h2><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># 安装node</span>
+import{_ as n,W as s,X as a,a0 as e}from"./framework-34e2a50f.js";const t={},p=e(`<h1 id="vuepress-hope-配置" tabindex="-1"><a class="header-anchor" href="#vuepress-hope-配置" aria-hidden="true">#</a> vuepress hope 配置</h1><h2 id="安装依赖" tabindex="-1"><a class="header-anchor" href="#安装依赖" aria-hidden="true">#</a> 安装依赖</h2><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># 安装node</span>
 brew <span class="token function">install</span> <span class="token function">node</span>
 <span class="token comment"># 安装 pmpm 包管理</span>
 <span class="token function">npm</span> <span class="token function">install</span> <span class="token function">pnpm</span>
