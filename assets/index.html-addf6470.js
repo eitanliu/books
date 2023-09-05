@@ -1,0 +1,1 @@
+import{_ as o,W as t,X as n,Y as r,Z as e,$ as d,C as c}from"./framework-d1b6b6e6.js";const s={},_=e("h1",{id:"android",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#android","aria-hidden":"true"},"#"),d(" Android")],-1);function i(l,h){const a=c("AutoCatalog");return t(),n("div",null,[_,r(a)])}const m=o(s,[["render",i],["__file","index.html.vue"]]);export{m as default};

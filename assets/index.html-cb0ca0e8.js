@@ -1,1 +1,0 @@
-import{_ as a,W as t,X as c,Y as e,Z as n}from"./framework-c8ebc670.js";const r={},s=e("h1",{id:"mac",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#mac","aria-hidden":"true"},"#"),n(" Mac")],-1),o=[s];function _(d,i){return t(),c("div",null,o)}const l=a(r,[["render",_],["__file","index.html.vue"]]);export{l as default};
