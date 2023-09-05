@@ -4,6 +4,6 @@ dir:
   order: 1
 ---
 
-# Android
+# Flutter
 
 <AutoCatalog/>

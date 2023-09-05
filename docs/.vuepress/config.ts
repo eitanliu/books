@@ -1,4 +1,4 @@
-import { defineUserConfig } from 'vuepress'
+import { defineUserConfig } from 'vuepress';
 import { hopeTheme } from "vuepress-theme-hope";
 
 export default defineUserConfig({
@@ -9,5 +9,21 @@ export default defineUserConfig({
     lang: "zh-CN", // 语言
     base: "/books/", // 网站路径
     theme: hopeTheme({ // 使用hope主题
+        plugins: {
+            autoCatalog: {
+                frontmatter: (path) => {
+                    console.error(path);
+                    return {
+                        order: 1,
+                        dir: {
+                            order: 1
+                        },
+                    }
+                },
+            },
+            mdEnhance: {
+                attrs: true,
+            },
+        }
     }),
 })

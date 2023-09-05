@@ -1,7 +1,9 @@
 ---
 index: false
 dir:
-  order: -2
+  order: 10
 ---
 
 # Dev
+
+<AutoCatalog/>

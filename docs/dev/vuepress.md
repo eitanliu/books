@@ -76,3 +76,8 @@ export default defineUserConfig({
 })
 ```
 
+## Markdown 增强
+
+[Markdown 增强](https://theme-hope.vuejs.press/zh/guide/markdown/)
+
+- [属性支持](https://theme-hope.vuejs.press/zh/guide/markdown/attrs.html)
