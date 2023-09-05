@@ -112,6 +112,44 @@ sudo tmutil setdestination -p /Volumes/backup/
 
 `Folx 5`、`FDM`、`Leech 3`、`uTorrent`、`Transmission`、`Aria2`
 
+
+## Dnsmasq
+
+```text
+brew install dnsmasq
+vim /usr/local/etc/resolv.dnsmasq.conf
+vim /usr/local/etc/dnsmasq.conf
+# /usr/local/etc/dnsmasq.d/*
+# 清除DNS缓存
+sudo killall -HUP mDNSResponder
+# 重启
+sudo brew services stop dnsmasq
+sudo brew services start dnsmasq
+sudo launchctl stop homebrew.mxcl.dnsmasq
+sudo launchctl start homebrew.mxcl.dnsmasq
+```
+
+### 自定义解析
+
+`/usr/local/etc/dnsmasq.d/my.address.conf`
+
+```text
+# 加速GitHub访问
+address=/github.com/192.30.253.112
+address=/github.com/192.30.253.113
+```
+
+[ipaddress ip-lookup](https://www.ipaddress.com/ip-lookup)  
+[dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list)  
+[利用Dnsmasq 部署DNS 服务- 运维之美](https://www.hi-linux.com/posts/30947.html)  
+[Mac上用dnsmasq配置DNS服务器](https://blog.csdn.net/lovenjoe/article/details/51210937)
+
+
+## 预览增强
+
+[增强 Mac「预览」功能（QuickLook）的教程](https://sspai.com/31927)  
+[QuickLookPlugins.com](http://www.quicklookplugins.com/)  
+
 ## 参考
 
 [如何禁用HomeBrew 自动更新](https://juejin.cn/post/6931189341150674958)  

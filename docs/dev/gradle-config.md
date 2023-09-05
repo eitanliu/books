@@ -2,7 +2,7 @@
 
 ## 全局配置Aliyun代理
 
-`~/.gradle/` 目录下创建编辑 [init.gradle](https://gist.github.com/eitanliu/a8123e4d13d9068df37325af40494963)
+`~/.gradle/` 目录下创建编辑 [init.gradle](https://gist.github.com/eitanliu/a8123e4d13d9068df37325af40494963) Kotlin 版本  [init.gradle.kts](https://gist.github.com/bennyhuo/af7c43cc4831661193605e124f539942)
 
 ```groovy
 // 复制这个文件到用户目录的.gradle目录，改名为init.gradle

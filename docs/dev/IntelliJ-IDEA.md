@@ -18,6 +18,7 @@ Setting -> Keymap
 | Select In        | alt F1          | 定位当前文件位置 |
 | Navigate Back    | cmd alt left    | 上次编辑位置     |
 | Navigate Forwar  | cmd alt right   | 下次编辑位置     |
+| Fold Selection   | cmd .           | 折叠/展开代码    |
 
 ### 功能切换
 

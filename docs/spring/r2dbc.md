@@ -6,7 +6,7 @@ order: 1
 
 ## 什么是R2DBC
 
-R2DBC全称 `Reactive Relational Database Connectivity`，.R2DBC 是一套响应式数据库操作 API 规范。它定义了API ，由驱动程序供应商实现以访问其关系数据库。  
+R2DBC全称 `Reactive Relational Database Connectivity`，R2DBC 是一套响应式数据库操作 API 规范。它定义了API ，由驱动程序供应商实现以访问其关系数据库。  
 
 之所以要创建R2DBC是因要需要一个以少量线程和更少硬件资源进行的非阻塞应用栈来处理并发性。使用JDBC标准的API无法满足使用需求，因为使用  `线程池`  来弥补阻塞处理是有限的。
 
