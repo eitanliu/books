@@ -88,6 +88,8 @@
 
 [fhoto_editor](https://pub.dev/packages/fhoto_editor)
 
+[fast_image_resizer](https://pub.dev/packages/fast_image_resizer)
+
 ### 涂鸭
 
 [story_painter](https://pub.dev/packages/story_painter)
