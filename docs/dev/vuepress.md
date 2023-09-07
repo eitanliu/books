@@ -35,11 +35,16 @@ pnpm docs:dev
 
 ### 文档配置
 
+基础配置[^pressCfg]、主题配置[^pressTheme]、Hope主题配置[^hopeTheme]
+
 `.vuepress/config.js`
 
 ```ts
 import { defineUserConfig } from 'vuepress'
 import { hopeTheme } from "vuepress-theme-hope";
+
+// 页面目录的标题深度
+let headerRange = [2, 3, 4, 5];
 
 export default defineUserConfig({
     host: 'localhost', // ip
@@ -48,36 +53,35 @@ export default defineUserConfig({
     description: 'Development notes',
     lang: "zh-CN", // 语言
     base: "/books/", // 网站路径
+    markdown: {
+        headers: {
+            level: headerRange,
+        },
+        toc: {
+            level: headerRange,
+        },
+    },
     theme: hopeTheme({ // 使用hope主题
-        sidebar: [ // 自定义侧栏
-            {
-                text: "Introduce",
-                link: "/",
-                activeMatch: "^/$",
+        headerDepth: headerRange.length,
+        plugins: {
+            mdEnhance: {
+                attrs: true, // H5 属性支持
+                footnote: true, // 脚注
             },
-            {
-                text: "Spring",
-                prefix: "/spring/",
-                collapsible: true,
-                children: "structure",
-            },
-            {
-                text: "Dev",
-                prefix: "/dev/",
-                collapsible: true,
-                children: "structure",
-            },
-            {
-                text: "About",
-                link: "/about",
-            },
-        ],
+        },
     }),
 })
 ```
 
 ## Markdown 增强
 
-[Markdown 增强](https://theme-hope.vuejs.press/zh/guide/markdown/)
+VuePress Markdown 语法[^pressMD]，Hope Markdown语法增强 [^hopeMD]
 
-- [属性支持](https://theme-hope.vuejs.press/zh/guide/markdown/attrs.html)
+[H5 属性支持](https://theme-hope.vuejs.press/zh/guide/markdown/attrs.html)
+
+
+[^pressCfg]: [VuePress 配置](https://v2.vuepress.vuejs.org/zh/reference/config.html)  
+[^pressTheme]: [VuePress 主题配置](https://v2.vuepress.vuejs.org/zh/reference/default-theme/config.html)  
+[^hopeTheme]: [Hope 主题配置](https://theme-hope.vuejs.press/zh/config/)  
+[^pressMD]: [VuePress Markdown 指南](https://v2.vuepress.vuejs.org/zh/guide/markdown.html)  
+[^hopeMD]: [Hope Markdown 增强](https://theme-hope.vuejs.press/zh/guide/markdown/)  

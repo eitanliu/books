@@ -1,6 +1,9 @@
 import { defineUserConfig } from 'vuepress';
 import { hopeTheme } from "vuepress-theme-hope";
 
+// 页面目录的标题深度
+let headerRange = [2, 3, 4, 5];
+
 export default defineUserConfig({
     host: 'localhost', // ip
     port: 8099, //端口号
@@ -8,9 +11,19 @@ export default defineUserConfig({
     description: 'Development notes',
     lang: "zh-CN", // 语言
     base: "/books/", // 网站路径
+    markdown: {
+        headers: {
+            level: headerRange,
+        },
+        toc: {
+            level: headerRange,
+        },
+    },
     theme: hopeTheme({ // 使用hope主题
+        repo: 'https://github.com/eitanliu/books',
+        headerDepth: headerRange.length,
         plugins: {
-            autoCatalog: {
+            autoCatalog: { // 目录生成
                 frontmatter: (path) => {
                     console.error(path);
                     return {
@@ -22,8 +35,9 @@ export default defineUserConfig({
                 },
             },
             mdEnhance: {
-                attrs: true,
+                attrs: true, // H5 属性支持
+                footnote: true, // 脚注
             },
-        }
+        },
     }),
 })
