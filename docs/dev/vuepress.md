@@ -75,9 +75,17 @@ export default defineUserConfig({
 
 ## Markdown 增强
 
-VuePress Markdown 语法[^pressMD]，Hope Markdown语法增强 [^hopeMD]
+### VuePress
 
-[H5 属性支持](https://theme-hope.vuejs.press/zh/guide/markdown/attrs.html)
+VuePress Markdown 语法[^pressMD]
+
+### Hope Them
+
+Hope Markdown语法增强 [^hopeMD]
+
+[内置 Markdown 扩展](https://theme-hope.vuejs.press/zh/cookbook/vuepress/markdown.html)、[VuePress Enhance 插件文档](https://plugin-md-enhance.vuejs.press/zh/)
+
+[Hope H5 属性支持](https://theme-hope.vuejs.press/zh/guide/markdown/attrs.html)
 
 
 [^pressCfg]: [VuePress 配置](https://v2.vuepress.vuejs.org/zh/reference/config.html)  

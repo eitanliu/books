@@ -45,9 +45,29 @@ staticaly `https://cdn.staticaly.com/gh/<用户名>/<仓库名>/<发布版本号
 
 ## 自建服务
 
-[gh-proxy](https://github.com/hunshcn/gh-proxy)
+[gh-proxy](https://github.com/hunshcn/gh-proxy)、
 
+### Nginx
 
+```ini
+server {
+    listen 80;
+    server_name github.server.name;
+    location /{
+        proxy_pass https://github.com;
+    }
+}
+
+server {
+    listen 80;
+    server_name raw.github.server.name;
+    location /{
+        proxy_pass https://raw.githubusercontent.com;
+    }
+}
+```
+
+[nginx本地反代github](https://zhuanlan.zhihu.com/p/411165246)
 
 [^github-proxy]: [GitHub Proxy 代理加速](https://ghproxy.com/)
 [^github-mirror]: [Github 文件加速服务 - GitMirror](https://gitmirror.com/files.html)
