@@ -77,6 +77,18 @@ export PATH=$PATH:$FLUTTER_HOME/bin:$DART_HOME/bin:$HOME/.pub-cache/bin
 alias idea-ce="open -a /Applications/IntelliJ\ IDEA\ CE.app"
 ```
 
+## 压缩解压
+
+```shell
+# 压缩 tar.gz | tgz
+# 命令前添加 COPYFILE_DISABLE=1 
+tar --exclude '.DS_Store' --exclude '__MACOSX' -cvzf xxxarchive.tar.gz xxxarchive
+# 解压
+tar -xvf xxxarchive.tar.gz
+```
+
+
+
 ## 输入法
 
 [RIME | 中州韵输入法引擎](https://rime.im/)

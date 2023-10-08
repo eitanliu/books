@@ -82,3 +82,18 @@ geoip 国家代码 [^geoname-statistics]
 [^dns-matching]: [通配符域名匹配](https://dreamacro.github.io/clash/zh_CN/configuration/getting-started.html#dns-%E9%80%9A%E9%85%8D%E7%AC%A6%E5%9F%9F%E5%90%8D%E5%8C%B9%E9%85%8D)
 [^geoname-statistics]: [GeoNames Country statistics](https://www.geonames.org/statistics/)  
 [^Loyalsoldier-clash-rules]: [Loyalsoldier/clash-rules](https://github.com/Loyalsoldier/clash-rules/)
+
+## DNS
+
+```yaml
+dns:
+  nameserver-policy:
+    '+.cn': '223.5.5.5'
+```
+
+
+
+[[Feature\] [DNS] 是否应该让不符合 fallback-filter 条件的DNS查询*只*采用 nameserver 中解析的结果？](https://github.com/Dreamacro/clash/issues/2386)  
+[DNS污染对Clash（for Windows）的影响](https://github.com/Fndroid/clash_for_windows_pkg/wiki/DNS污染对Clash（for-Windows）的影响)  
+[我有特别的DNS 配置和使用技巧 - Sukka's Blog](https://blog.skk.moe/post/i-have-my-unique-dns-setup/)  
+[个人自用 Surge 规则](https://github.com/SukkaW/Surge)  

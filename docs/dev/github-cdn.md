@@ -35,13 +35,15 @@ https://gcore.jsdelivr.net/gh/
 https://purge.jsdelivr.net/gh/
 ```
 
-
-
 ### 当前证书无效
 
 [ fastgit.org](https://hub.fastgit.org/) 
 
 staticaly `https://cdn.staticaly.com/gh/<用户名>/<仓库名>/<发布版本号>/<文件路径>`
+
+### 下载加速
+
+https://d.serctl.com/ 
 
 ## 自建服务
 
