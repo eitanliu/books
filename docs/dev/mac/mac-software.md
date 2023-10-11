@@ -162,6 +162,24 @@ address=/github.com/192.30.253.113
 [增强 Mac「预览」功能（QuickLook）的教程](https://sspai.com/31927)  
 [QuickLookPlugins.com](http://www.quicklookplugins.com/)  
 
+## 黑苹果
+
+[国光的黑苹果安装教程](https://apple.sqlsec.com/3-准备工作/)
+
+## 系统历史版本
+
+[如何下载和安装 macOS](https://support.apple.com/zh-cn/HT211683)  
+
+[macOS Ventura 13](https://apps.apple.com/cn/app/macos-ventura/id1638787999?mt=12)  
+[macOS Monterey 12](https://apps.apple.com/cn/app/macos-monterey/id1576738294?mt=12)  
+[macos-big-sur 11](https://apps.apple.com/cn/app/macos-big-sur/id1526878132?mt=12)   
+[macos-catalina 10.15](https://apps.apple.com/cn/app/macos-catalina/id1466841314?mt=12) 
+[macos-mojave 10.14](https://apps.apple.com/cn/app/macos-mojave/id1398502828?mt=12)  
+[macos-high-sierra 10.13](https://apps.apple.com/cn/app/macos-high-sierra/id1246284741?mt=12)  
+[macos-sierra 10.12](https://itunes.apple.com/cn/app/macos-sierra/id1127487414?ls=1&mt=12)  
+[macos-sierra 10.12.dmg](http://updates-http.cdn-apple.com/2019/cert/061-39476-20191023-48f365f4-0015-4c41-9f44-39d3d2aca067/InstallOS.dmg)  
+
+
 ## 参考
 
 [如何禁用HomeBrew 自动更新](https://juejin.cn/post/6931189341150674958)  

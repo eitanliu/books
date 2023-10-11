@@ -7,99 +7,109 @@
 ```groovy
 // 复制这个文件到用户目录的.gradle目录，改名为init.gradle
 // ~/.gradle/init.gradle
-def GOOGLE_URL = 'https://dl.google.com'
-def CENTER_URL = 'https://repo.maven.apache.org/maven2'
-def CENTER1_URL = 'https://repo1.maven.org/maven2'
-def JCENTER_URL = 'https://jcenter.bintray.com'
-def GRADLE_PLUGIN_URL = 'https://plugins.gradle.org/m2'
-def SPRING_URL = 'http://repo.spring.io/libs-milestone'
-def SPRING_PLUGIN_URL = 'http://repo.spring.io/plugins-release'
-def SPRING_LIBS_MILESTONE_URL = 'https://repo.spring.io/artifactory/libs-milestone'
-def SPRING_PLUGIN_RELEASE_URL = 'https://repo.spring.io/artifactory/plugins-release'
-def GRAILS_CORE_URL = 'https://repo.grails.org/grails/core'
-def APACHE_SNAPSHOTS_URL = 'https://repository.apache.org/snapshots'
+ext {
+    def GOOGLE_URL = 'https://dl.google.com'
+    def CENTER_URL = 'https://repo.maven.apache.org/maven2'
+    def CENTER1_URL = 'https://repo1.maven.org/maven2'
+    def JCENTER_URL = 'https://jcenter.bintray.com'
+    def GRADLE_PLUGIN_URL = 'https://plugins.gradle.org/m2'
+    def SPRING_URL = 'http://repo.spring.io/libs-milestone'
+    def SPRING_PLUGIN_URL = 'http://repo.spring.io/plugins-release'
+    def SPRING_LIBS_MILESTONE_URL = 'https://repo.spring.io/artifactory/libs-milestone'
+    def SPRING_PLUGIN_RELEASE_URL = 'https://repo.spring.io/artifactory/plugins-release'
+    def GRAILS_CORE_URL = 'https://repo.grails.org/grails/core'
+    def APACHE_SNAPSHOTS_URL = 'https://repository.apache.org/snapshots'
 
-def FLUTTER_URL = 'http://download.flutter.io'
-def GRADLE_LOCAL_RELEASE_URL = 'https://repo.gradle.org/gradle/libs-releases-local'
+    def FLUTTER_URL = 'http://download.flutter.io'
+    def GRADLE_LOCAL_RELEASE_URL = 'https://repo.gradle.org/gradle/libs-releases-local'
 
-def ALIYUN_GOOGLE_URL = 'https://maven.aliyun.com/repository/google'
-def ALIYUN_CENTER_URL = 'https://maven.aliyun.com/repository/central'
-def ALIYUN_JCENTER_URL = 'https://maven.aliyun.com/repository/jcentral'
-def ALIYUN_GRADLE_PLUGIN_URL = 'https://maven.aliyun.com/repository/gradle-plugin'
-def ALIYUN_SPRING_URL = 'https://maven.aliyun.com/repository/spring'
-def ALIYUN_SPRING_PLUGIN_URL = 'https://maven.aliyun.com/repository/spring-plugin'
-def ALIYUN_GRAILS_CORE_URL = 'https://maven.aliyun.com/repository/grails-core'
-def ALIYUN_APACHE_SNAPSHOTS_URL = 'https://maven.aliyun.com/repository/apache-snapshots'
-def ALIYUN_PUBLIC_URL = 'https://maven.aliyun.com/repository/public'
+    def MIRROR_GOOGLE_URL = 'https://mirrors.tencent.com/nexus/repository/maven-public/'
+    def MIRROR_CENTER_URL = 'https://mirrors.tencent.com/nexus/repository/maven-public/'
+    def MIRROR_JCENTER_URL = 'https://mirrors.tencent.com/nexus/repository/maven-public/'
+    def MIRROR_GRADLE_PLUGIN_URL = 'https://mirrors.tencent.com/nexus/repository/gradle-plugins/'
+    def MIRROR_SPRING_URL = 'https://maven.aliyun.com/repository/spring'
+    def MIRROR_SPRING_PLUGIN_URL = 'https://maven.aliyun.com/repository/spring-plugin'
+    def MIRROR_GRAILS_CORE_URL = 'https://maven.aliyun.com/repository/grails-core'
+    def MIRROR_APACHE_SNAPSHOTS_URL = 'https://maven.aliyun.com/repository/apache-snapshots'
+    def MIRROR_PUBLIC_URL = 'https://maven.aliyun.com/repository/public'
 
-def FLUTTER_CN_URL = 'https://storage.flutter-io.cn/download.flutter.io'
+    def MIRROR_FLUTTER_URL = 'https://storage.flutter-io.cn/download.flutter.io'
 
-def mirrorRepo = new HashMap<String, String>() {
-    {
-        put(GOOGLE_URL, ALIYUN_GOOGLE_URL)
-        put(CENTER_URL, ALIYUN_CENTER_URL)
-        put(CENTER1_URL, ALIYUN_CENTER_URL)
-        put(JCENTER_URL, ALIYUN_PUBLIC_URL)
-        put(GRADLE_PLUGIN_URL, ALIYUN_GRADLE_PLUGIN_URL)
-        put(SPRING_URL, ALIYUN_SPRING_URL)
-        put(SPRING_PLUGIN_URL, ALIYUN_SPRING_PLUGIN_URL)
-        put(SPRING_LIBS_MILESTONE_URL, ALIYUN_SPRING_URL)
-        put(SPRING_PLUGIN_RELEASE_URL, ALIYUN_SPRING_PLUGIN_URL)
-        put(GRAILS_CORE_URL, ALIYUN_GRAILS_CORE_URL)
-        put(APACHE_SNAPSHOTS_URL, ALIYUN_APACHE_SNAPSHOTS_URL)
-        //put(FLUTTER_URL, FLUTTER_CN_URL)
+    mirrorRepo = new HashMap<String, String>() {
+        {
+            put(GOOGLE_URL, MIRROR_GOOGLE_URL)
+            put(CENTER_URL, MIRROR_CENTER_URL)
+            put(CENTER1_URL, MIRROR_CENTER_URL)
+            put(JCENTER_URL, MIRROR_PUBLIC_URL)
+            put(GRADLE_PLUGIN_URL, MIRROR_GRADLE_PLUGIN_URL)
+            put(SPRING_URL, MIRROR_SPRING_URL)
+            put(SPRING_PLUGIN_URL, MIRROR_SPRING_PLUGIN_URL)
+            put(SPRING_LIBS_MILESTONE_URL, MIRROR_SPRING_URL)
+            put(SPRING_PLUGIN_RELEASE_URL, MIRROR_SPRING_PLUGIN_URL)
+            put(GRAILS_CORE_URL, MIRROR_GRAILS_CORE_URL)
+            put(APACHE_SNAPSHOTS_URL, MIRROR_APACHE_SNAPSHOTS_URL)
+            //put(FLUTTER_URL, MIRROR_FLUTTER_URL)
+        }
+    }
+
+    mirrorOrigin = mirrorRepo.keySet().collect {
+        println "mirrorRepo item $it"
+        [it.replaceFirst("http://", "").replaceFirst("https://", ""), it]
     }
 }
 
-def mirrorOrigin = mirrorRepo.keySet().collect {
-    [it.replaceFirst("http://", "").replaceFirst("https://", ""), it]
+Closure handlerMirrorRepo = { RepositoryHandler handler, boolean mirrorEnable, Project project, String tag = "all" ->
+    handler.configureEach { ArtifactRepository repo ->
+
+        if (mirrorEnable && repo instanceof MavenArtifactRepository) {
+            def url = repo.url.toString()
+            // println("$tag Origin Repository $url")
+            mirrorOrigin.forEach {
+                if (url.contains(it[0])) {
+                    def mirrorUrl = mirrorRepo[it[1]]
+                    println "Mirror Repository $project $tag: ${repo.url} replaced $mirrorUrl."
+                    repo.url = mirrorUrl
+                }
+            }
+        }
+
+    }
 }
 
 allprojects {
-    def mirrorEnable = Boolean.valueOf(properties.getOrDefault("mirror_aliyun_enable", "true") as String);
-    project.logger.lifecycle "$project mirror_aliyun_enable $mirrorEnable"
+    def flutterProjectRoot = rootProject.projectDir.parentFile
+    def pluginsFile = new File(flutterProjectRoot, '.flutter-plugins')
+    def isFlutterProject = pluginsFile.exists()
+    def mirrorEnable = Boolean.valueOf(findProperty("mirror_maven_enable")?.toString() ?: "true");
 
-    repositories {
+    //mirrorEnable = mirrorEnable || isFlutterProject
+    project.logger.lifecycle "$project mirror_maven_enable $mirrorEnable"
 
-        configureEach { ArtifactRepository repo ->
-
-            if (mirrorEnable && repo instanceof MavenArtifactRepository) {
-                def url = repo.url.toString()
-                // println("all $project repo: $url")
-                mirrorOrigin.forEach {
-                    if (url.contains(it[0])) {
-                        def mirrorUrl = mirrorRepo[it[1]]
-                        project.logger.lifecycle "$project Repository ${repo.url} replaced $mirrorUrl."
-                        repo.url = mirrorUrl
-                    }
-                }
-            }
-
-        }
-    }
+    handlerMirrorRepo(repositories, mirrorEnable, project, "all")
 
     buildscript {
 
-        repositories {
-
-            configureEach { ArtifactRepository repo ->
-
-                if (mirrorEnable && repo instanceof MavenArtifactRepository) {
-                    def url = repo.url.toString()
-                    // println("all buildscript $project repo: $url")
-                    mirrorOrigin.forEach {
-                        if (url.contains(it[0])) {
-                            def mirrorUrl = mirrorRepo[it[1]]
-                            project.logger.lifecycle "buildscript $project Repository ${repo.url} replaced $mirrorUrl."
-                            repo.url = mirrorUrl
-                        }
-                    }
-                }
-
-            }
-        }
+        handlerMirrorRepo(repositories, mirrorEnable, project, "buildscript")
     }
 }
+
+gradle.beforeSettings { settings ->
+    // println "beforeSettings ${settings.properties}"
+    // def mirrorEnable = true;
+    def mirrorEnable = Boolean.valueOf(settings.properties.getOrDefault("mirror_maven_enable","true") as String);
+    println "beforeSettings mirror_maven_enable $mirrorEnable"
+    handlerMirrorRepo(settings.pluginManagement.repositories, mirrorEnable, null, "pluginManagement")
+    // 6.8 及更高版本执行 DependencyResolutionManagement 配置
+    // dependencyResolutionManagement.repositories
+    if (gradle.gradleVersion >= "6.8") {
+        def getMethod = settings.class.getDeclaredMethod("getDependencyResolutionManagement")
+        def dependencyResolutionManagement = getMethod.invoke(settings)
+        def repositoriesMethod = dependencyResolutionManagement.class.getDeclaredMethod("getRepositories")
+        def repos = repositoriesMethod.invoke(dependencyResolutionManagement) as RepositoryHandler
+        handlerMirrorRepo(repos, mirrorEnable, null, "dependencyResolutionManagement")
+    }
+}
+
 ```
 
 ## 错误处里

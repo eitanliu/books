@@ -78,6 +78,10 @@ Switcher 窗口下 `ctrl shift`  配合 `left right up down` 快速选择文件�
 
 ### 编辑器配置
 
+#### 关闭代码预览始终在同一个tab
+
+`Settings -> Editor -> General -> Editor Tabs ` 取消 `Enable preview tab`
+
 #### 显示空格
 
 `Settings -> Editor -> General -> Appearance ` 勾选 `Show whitespaces`
