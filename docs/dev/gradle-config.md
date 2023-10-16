@@ -96,7 +96,7 @@ allprojects {
 gradle.beforeSettings { settings ->
     // println "beforeSettings ${settings.properties}"
     // def mirrorEnable = true;
-    def mirrorEnable = Boolean.valueOf(settings.properties.getOrDefault("mirror_maven_enable","true") as String);
+    def mirrorEnable = Boolean.valueOf(settings.properties.get("mirror_maven_enable")?.toString() ?: "true");
     println "beforeSettings mirror_maven_enable $mirrorEnable"
     handlerMirrorRepo(settings.pluginManagement.repositories, mirrorEnable, null, "pluginManagement")
     // 6.8 及更高版本执行 DependencyResolutionManagement 配置

@@ -97,7 +97,7 @@ config file `/usr/local/etc/v2ray/config.json` [^grpc-example]
 
 #### Nginx
 
-`vim /etc/nginx/sites-enabled/default.conf` [^grpc-example]
+`vim /etc/nginx/sites-enabled/default.conf` [^grpc-interruption]
 
 ```ini
 server {
@@ -266,3 +266,4 @@ server {
 [^v5view]: [v5.7.0 User Preview](https://github.com/v2fly/v2ray-core/discussions/2549)  
 [^v5example]: [client.jsonv5.json](https://gist.github.com/xiaokangwang/b8f3a77780cae99eba68e7b127522883)  
 [^grpc-fallback]: [关于添加**gRPC**回落的具体探讨 · v2fly/v2ray-core · Discussion #1625](https://github.com/v2fly/v2ray-core/discussions/1625)
+[^grpc-interruption]: [什么套用 cloudflare grpc 会断流](https://github.com/v2fly/v2ray-core/discussions/1174)
