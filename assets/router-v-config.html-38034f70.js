@@ -51,36 +51,36 @@ http://cp.cloudflare.com/generate_204
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="nginx-1" tabindex="-1"><a class="header-anchor" href="#nginx-1" aria-hidden="true">#</a> Nginx</h4><p><code>vim /etc/nginx/sites-enabled/default.conf</code> <sup class="footnote-ref"><a href="#footnote2">[2]</a><a class="footnote-anchor" id="footnote-ref2"></a></sup></p><div class="language-ini line-numbers-mode" data-ext="ini"><pre class="language-ini"><code>server {
-    listen       443 http2;
-    server_name  localhost;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="nginx-1" tabindex="-1"><a class="header-anchor" href="#nginx-1" aria-hidden="true">#</a> Nginx</h4><p><code>vim /etc/nginx/sites-enabled/default.conf</code> <sup class="footnote-ref"><a href="#footnote2">[2]</a><a class="footnote-anchor" id="footnote-ref2"></a></sup></p><div class="language-nginx line-numbers-mode" data-ext="nginx"><pre class="language-nginx"><code><span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">443</span> http2</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">server_name</span>  localhost</span><span class="token punctuation">;</span>
 
-    location /abc/Tun {
+    <span class="token directive"><span class="token keyword">location</span> /abc/Tun</span> <span class="token punctuation">{</span>
         <span class="token comment"># 网上参考级配置</span>
-        if ($content_type !~ &quot;application/grpc&quot;) {
-            return 404;
-        }
-        client_max_body_size 0;
-        client_body_timeout 60m;
-        send_timeout 60m;
-        lingering_close always;
+        <span class="token directive"><span class="token keyword">if</span> (<span class="token variable">$content_type</span> !~ <span class="token string">&quot;application/grpc&quot;</span>)</span> <span class="token punctuation">{</span>
+            <span class="token directive"><span class="token keyword">return</span> <span class="token number">404</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token directive"><span class="token keyword">client_max_body_size</span> <span class="token number">0</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">client_body_timeout</span> <span class="token number">60m</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">send_timeout</span> <span class="token number">60m</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">lingering_close</span> always</span><span class="token punctuation">;</span>
 
         <span class="token comment"># keepalive_time 2h;</span>
-        keepalive_timeout 30s;
-        keepalive_requests 256;
-        grpc_socket_keepalive on;
+        <span class="token directive"><span class="token keyword">keepalive_timeout</span> <span class="token number">30s</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">keepalive_requests</span> <span class="token number">256</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">grpc_socket_keepalive</span> <span class="token boolean">on</span></span><span class="token punctuation">;</span>
 
         <span class="token comment"># 实践级配置</span>
-        grpc_buffer_size 100m;
-        grpc_read_timeout 3m;
-        grpc_send_timeout 2m;
-        grpc_set_header Host $host;
-        grpc_set_header X-Real-IP $remote_addr;
-        grpc_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        <span class="token directive"><span class="token keyword">grpc_buffer_size</span> <span class="token number">100m</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">grpc_read_timeout</span> <span class="token number">3m</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">grpc_send_timeout</span> <span class="token number">2m</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">grpc_set_header</span> Host <span class="token variable">$host</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">grpc_set_header</span> X-Real-IP <span class="token variable">$remote_addr</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">grpc_set_header</span> X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span></span><span class="token punctuation">;</span>
 
-        grpc_pass grpc://127.0.0.1:33322;
-    }
-}
+        <span class="token directive"><span class="token keyword">grpc_pass</span> grpc://127.0.0.1:33322</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="meek" tabindex="-1"><a class="header-anchor" href="#meek" aria-hidden="true">#</a> Meek</h3><h4 id="service-1" tabindex="-1"><a class="header-anchor" href="#service-1" aria-hidden="true">#</a> Service</h4><p>config file <code>/usr/local/etc/v2ray/config.json</code> <sup class="footnote-ref"><a href="#footnote3">[3]</a><a class="footnote-anchor" id="footnote-ref3"></a></sup> <sup class="footnote-ref"><a href="#footnote4">[4]</a><a class="footnote-anchor" id="footnote-ref4"></a></sup> <sup class="footnote-ref"><a href="#footnote5">[5]</a><a class="footnote-anchor" id="footnote-ref5"></a></sup></p><div class="language-json line-numbers-mode" data-ext="json"><pre class="language-json"><code><span class="token punctuation">{</span>
   <span class="token property">&quot;log&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">&quot;error&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
