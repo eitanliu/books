@@ -170,8 +170,12 @@ address=/github.com/192.30.253.113
 
 [如何下载和安装 macOS](https://support.apple.com/zh-cn/HT211683)  
 
+[macOS Sonoma 14](macappstores://apps.apple.com/cn/app/macos-sonoma/id6450717509?mt=12)  
 [macOS Ventura 13](https://apps.apple.com/cn/app/macos-ventura/id1638787999?mt=12)  
 [macOS Monterey 12](https://apps.apple.com/cn/app/macos-monterey/id1576738294?mt=12)  
+<details>
+  <summary>旧版</summary>
+
 [macos-big-sur 11](https://apps.apple.com/cn/app/macos-big-sur/id1526878132?mt=12)   
 [macos-catalina 10.15](https://apps.apple.com/cn/app/macos-catalina/id1466841314?mt=12) 
 [macos-mojave 10.14](https://apps.apple.com/cn/app/macos-mojave/id1398502828?mt=12)  
@@ -179,6 +183,7 @@ address=/github.com/192.30.253.113
 [macos-sierra 10.12](https://itunes.apple.com/cn/app/macos-sierra/id1127487414?ls=1&mt=12)  
 [macos-sierra 10.12.dmg](http://updates-http.cdn-apple.com/2019/cert/061-39476-20191023-48f365f4-0015-4c41-9f44-39d3d2aca067/InstallOS.dmg)  
 
+</details>
 
 ## 参考
 

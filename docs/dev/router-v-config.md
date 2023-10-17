@@ -99,7 +99,7 @@ config file `/usr/local/etc/v2ray/config.json` [^grpc-example]
 
 `vim /etc/nginx/sites-enabled/default.conf` [^grpc-interruption]
 
-```ini
+```nginx
 server {
     listen       443 http2;
     server_name  localhost;

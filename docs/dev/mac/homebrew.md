@@ -6,6 +6,19 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+## 必要配置
+
+### 禁用自动更新
+
+编辑添加 `~/.zshrc` 或 `~/.bashrc` [^disable-upgradle]
+
+```shell
+# 禁用自动升级所有软件
+export HOMEBREW_NO_AUTO_UPDATE=1
+# 禁用自动清理
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+```
+
 ### 常用命令
 
 #### 安装卸载软件
@@ -99,3 +112,4 @@ skitch `# 截图`\
 mplayerx `# 播放器`\
 ```
 
+[^disable-upgradle]: [一日一技：如何防止Homebrew 自动升级和自动清理过期程序](https://cloud.tencent.com/developer/article/1729258)  

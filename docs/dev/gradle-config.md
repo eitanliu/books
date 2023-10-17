@@ -23,10 +23,15 @@ ext {
     def FLUTTER_URL = 'http://download.flutter.io'
     def GRADLE_LOCAL_RELEASE_URL = 'https://repo.gradle.org/gradle/libs-releases-local'
 
+
     def MIRROR_GOOGLE_URL = 'https://mirrors.tencent.com/nexus/repository/maven-public/'
-    def MIRROR_CENTER_URL = 'https://mirrors.tencent.com/nexus/repository/maven-public/'
+    def MIRROR_CENTER_URL = 'https://mirrors.tencent.com/nexus/repository/maven-central/'
     def MIRROR_JCENTER_URL = 'https://mirrors.tencent.com/nexus/repository/maven-public/'
     def MIRROR_GRADLE_PLUGIN_URL = 'https://mirrors.tencent.com/nexus/repository/gradle-plugins/'
+    // def MIRROR_GOOGLE_URL = 'https://maven.aliyun.com/repository/google'
+    // def MIRROR_CENTER_URL = 'https://maven.aliyun.com/repository/central'
+    // def MIRROR_JCENTER_URL = 'https://maven.aliyun.com/repository/public'
+    // def MIRROR_GRADLE_PLUGIN_URL = 'https://maven.aliyun.com/repository/gradle-plugin'
     def MIRROR_SPRING_URL = 'https://maven.aliyun.com/repository/spring'
     def MIRROR_SPRING_PLUGIN_URL = 'https://maven.aliyun.com/repository/spring-plugin'
     def MIRROR_GRAILS_CORE_URL = 'https://maven.aliyun.com/repository/grails-core'
@@ -40,7 +45,7 @@ ext {
             put(GOOGLE_URL, MIRROR_GOOGLE_URL)
             put(CENTER_URL, MIRROR_CENTER_URL)
             put(CENTER1_URL, MIRROR_CENTER_URL)
-            put(JCENTER_URL, MIRROR_PUBLIC_URL)
+            put(JCENTER_URL, MIRROR_JCENTER_URL)
             put(GRADLE_PLUGIN_URL, MIRROR_GRADLE_PLUGIN_URL)
             put(SPRING_URL, MIRROR_SPRING_URL)
             put(SPRING_PLUGIN_URL, MIRROR_SPRING_PLUGIN_URL)
@@ -94,10 +99,9 @@ allprojects {
 }
 
 gradle.beforeSettings { settings ->
-    // println "beforeSettings ${settings.properties}"
-    // def mirrorEnable = true;
-    def mirrorEnable = Boolean.valueOf(settings.properties.get("mirror_maven_enable")?.toString() ?: "true");
-    println "beforeSettings mirror_maven_enable $mirrorEnable"
+    println "beforeSettings ${settings.properties}"
+    //def mirrorEnable = true;
+    def mirrorEnable = Boolean.valueOf(settings.properties.getOrDefault("mirror_maven_enable","true") as String);
     handlerMirrorRepo(settings.pluginManagement.repositories, mirrorEnable, null, "pluginManagement")
     // 6.8 及更高版本执行 DependencyResolutionManagement 配置
     // dependencyResolutionManagement.repositories
@@ -105,8 +109,8 @@ gradle.beforeSettings { settings ->
         def getMethod = settings.class.getDeclaredMethod("getDependencyResolutionManagement")
         def dependencyResolutionManagement = getMethod.invoke(settings)
         def repositoriesMethod = dependencyResolutionManagement.class.getDeclaredMethod("getRepositories")
-        def repos = repositoriesMethod.invoke(dependencyResolutionManagement) as RepositoryHandler
-        handlerMirrorRepo(repos, mirrorEnable, null, "dependencyResolutionManagement")
+        def repositories = repositoriesMethod.invoke(dependencyResolutionManagement) as RepositoryHandler
+        handlerMirrorRepo(repositories, mirrorEnable, null, "dependencyResolutionManagement")
     }
 }
 
