@@ -40,7 +40,7 @@ ext {
 
     def MIRROR_FLUTTER_URL = 'https://storage.flutter-io.cn/download.flutter.io'
 
-    mirrorRepo = new HashMap<String, String>() {
+    mirrorRepo = new LinkedHashMap<String, String>() {
         {
             put(GOOGLE_URL, MIRROR_GOOGLE_URL)
             put(CENTER_URL, MIRROR_CENTER_URL)
@@ -58,22 +58,26 @@ ext {
     }
 
     mirrorOrigin = mirrorRepo.keySet().collect {
-        println "mirrorRepo item $it"
+        println "mirrorRepo item $it -> ${mirrorRepo[it]}"
         [it.replaceFirst("http://", "").replaceFirst("https://", ""), it]
     }
 }
 
-Closure handlerMirrorRepo = { RepositoryHandler handler, boolean mirrorEnable, Project project, String tag = "all" ->
+Closure handleMirrorRepo = { RepositoryHandler handler, boolean mirrorEnable, Project project, String tag = "all" ->
     handler.configureEach { ArtifactRepository repo ->
 
         if (mirrorEnable && repo instanceof MavenArtifactRepository) {
             def url = repo.url.toString()
             // println("$tag Origin Repository $url")
-            mirrorOrigin.forEach {
-                if (url.contains(it[0])) {
-                    def mirrorUrl = mirrorRepo[it[1]]
-                    println "Mirror Repository $project $tag: ${repo.url} replaced $mirrorUrl."
-                    repo.url = mirrorUrl
+            mirrorOrigin.forEach { List<String> origin ->
+                if (url.contains(origin[0])) {
+                    def mirrorUrl = mirrorRepo[origin[1]]
+                    try {
+                        repo.url = mirrorUrl
+                        println "Mirror Repository $project $tag: $url replaced $mirrorUrl."
+                    } catch (Throwable e) {
+                        println "Mirror Repository $project $tag: $url error $e."
+                    }
                 }
             }
         }
@@ -90,19 +94,19 @@ allprojects {
     //mirrorEnable = mirrorEnable || isFlutterProject
     project.logger.lifecycle "$project mirror_maven_enable $mirrorEnable"
 
-    handlerMirrorRepo(repositories, mirrorEnable, project, "all")
+    handleMirrorRepo(repositories, mirrorEnable, project, "all")
 
     buildscript {
 
-        handlerMirrorRepo(repositories, mirrorEnable, project, "buildscript")
+        handleMirrorRepo(repositories, mirrorEnable, project, "buildscript")
     }
 }
 
 gradle.beforeSettings { settings ->
-    println "beforeSettings ${settings.properties}"
-    //def mirrorEnable = true;
-    def mirrorEnable = Boolean.valueOf(settings.properties.getOrDefault("mirror_maven_enable","true") as String);
-    handlerMirrorRepo(settings.pluginManagement.repositories, mirrorEnable, null, "pluginManagement")
+    // println "beforeSettings ${settings.properties}"
+    // def mirrorEnable = true;
+    def mirrorEnable = Boolean.valueOf(settings.properties.getOrDefault("mirror_maven_enable", "true") as String);
+    handleMirrorRepo(settings.pluginManagement.repositories, mirrorEnable, null, "pluginManagement")
     // 6.8 及更高版本执行 DependencyResolutionManagement 配置
     // dependencyResolutionManagement.repositories
     if (gradle.gradleVersion >= "6.8") {
@@ -110,7 +114,7 @@ gradle.beforeSettings { settings ->
         def dependencyResolutionManagement = getMethod.invoke(settings)
         def repositoriesMethod = dependencyResolutionManagement.class.getDeclaredMethod("getRepositories")
         def repositories = repositoriesMethod.invoke(dependencyResolutionManagement) as RepositoryHandler
-        handlerMirrorRepo(repositories, mirrorEnable, null, "dependencyResolutionManagement")
+        handleMirrorRepo(repositories, mirrorEnable, null, "dependencyResolutionManagement")
     }
 }
 
