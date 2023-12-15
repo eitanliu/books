@@ -120,6 +120,11 @@ gradle.beforeSettings { settings ->
 
 ```
 
+## Gradle 下载
+
+Gradle 的缓存目录为 `~/.gradle/wrapper/dists/{版本号}/{hash}/{版本号}.zip` ，要下载的Gradle版本链接加上 `.sha256` 可获取版本 hash 值。  
+[Gradle Releases](https://gradle.org/releases/)， [stable distributions](https://services.gradle.org/distributions/)  
+
 ## 错误处里
 
 ### 依赖一直下载失败
