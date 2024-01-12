@@ -120,6 +120,44 @@ gradle.beforeSettings { settings ->
 
 ```
 
+## 缓存配置
+
+[Gradle Directories](https://docs.gradle.org/current/userguide/directory_layout.html#dir:gradle_user_home)  
+
+### 禁用自动清理
+
+`~/.gradle/init.d/cache-settings.gradle`
+
+```groovy
+Class clazz = Class.forName("org.gradle.util.GradleVersion")
+boolean hasGradleVersion = null != clazz
+def currentMethod = clazz.getMethod("current")
+def versionMethod = clazz.getMethod("version", String.class)
+
+if (hasGradleVersion && currentMethod.invoke(null) > versionMethod.invoke(null, '8.0')) {
+    apply from: "gradle8/cache-settings.gradle"
+}
+```
+
+```groovy
+boolean hasGradleVersion = null != Class.forName("org.gradle.util.GradleVersion")
+if (hasGradleVersion && GradleVersion.current() >= GradleVersion.version('8.0')) {
+    apply from: "gradle8/cache-settings.gradle"
+}
+```
+
+`.gradle/init.d/gradle8/cache-settings.gradle`
+
+```groovy
+beforeSettings { settings ->
+    settings.caches {
+        cleanup = Cleanup.DISABLED
+    }
+}
+```
+
+
+
 ## Gradle 下载
 
 Gradle 的缓存目录为 `~/.gradle/wrapper/dists/{版本号}/{hash}/{版本号}.zip` ，要下载的Gradle版本链接加上 `.sha256` 可获取版本 hash 值。  

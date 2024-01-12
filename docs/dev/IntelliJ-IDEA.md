@@ -68,6 +68,10 @@ Switcher 窗口下 `ctrl shift`  配合 `left right up down` 快速选择文件�
 
 `Helpe -> Find Action` 输入 `Choose Boot Java Runtime` 切换Java运行时，选择一个带有 `xxx JetBrains Runtime With JCEF` 的，OK确认后会自动下载  
 
+**反编译出现 /* compiled code */**
+
+低版本确认是否安装 `Java Bytecode Decompiler` 插件，`Tools -> Kotlin -> Decompile to Java ` 即可查看  
+
 ## 配置修改
 
 ### 代码风格
