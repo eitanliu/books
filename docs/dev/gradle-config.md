@@ -134,7 +134,7 @@ boolean hasGradleVersion = null != clazz
 def currentMethod = clazz.getMethod("current")
 def versionMethod = clazz.getMethod("version", String.class)
 
-if (hasGradleVersion && currentMethod.invoke(null) > versionMethod.invoke(null, '8.0')) {
+if (hasGradleVersion && currentMethod.invoke(null) >= versionMethod.invoke(null, '8.0')) {
     apply from: "gradle8/cache-settings.gradle"
 }
 ```

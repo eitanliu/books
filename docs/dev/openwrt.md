@@ -85,17 +85,28 @@ pb-boot固定从kernel0 (=sys1) 地址 (0xbc200000) 载入固件，官方u-boot�
 ### MiWifi Mini
 
 ```
-src/gz openwrt_core https://downloads.openwrt.org/releases/22.03.5/targets/ramips/mt7620/packages
-src/gz openwrt_base https://downloads.openwrt.org/releases/22.03.5/packages/mipsel_24kc/base
-src/gz openwrt_luci https://downloads.openwrt.org/releases/22.03.5/packages/mipsel_24kc/luci
-src/gz openwrt_packages https://downloads.openwrt.org/releases/22.03.5/packages/mipsel_24kc/packages
-src/gz openwrt_routing https://downloads.openwrt.org/releases/22.03.5/packages/mipsel_24kc/routing
-src/gz openwrt_telephony https://downloads.openwrt.org/releases/22.03.5/packages/mipsel_24kc/telephony
+src/gz openwrt_core https://mirrors.cloud.tencent.com/openwrt/releases/22.03.5/targets/ramips/mt7620/packages
+src/gz openwrt_base https://mirrors.cloud.tencent.com/openwrt/releases/22.03.5/packages/mipsel_24kc/base
+src/gz openwrt_luci https://mirrors.cloud.tencent.com/openwrt/releases/22.03.5/packages/mipsel_24kc/luci
+src/gz openwrt_packages https://mirrors.cloud.tencent.com/openwrt/releases/22.03.5/packages/mipsel_24kc/packages
+src/gz openwrt_routing https://mirrors.cloud.tencent.com/openwrt/releases/22.03.5/packages/mipsel_24kc/routing
+src/gz openwrt_telephony https://mirrors.cloud.tencent.com/openwrt/releases/22.03.5/packages/mipsel_24kc/telephony
 ```
 
-## MiWifi 3Pro
+### MiWifi 3Pro
 
-### 22.03.5
+#### 23.05.0-rc3
+
+```
+src/gz x-wrt_core http://mirrors.cloud.tencent.com/openwrt/releases/23.05.0-rc3/targets/ramips/mt7621/packages
+src/gz x-wrt_base http://mirrors.cloud.tencent.com/openwrt/releases/23.05.0-rc3/packages/mipsel_24kc/base
+src/gz x-wrt_luci http://mirrors.cloud.tencent.com/openwrt/releases/23.05.0-rc3/packages/mipsel_24kc/luci
+src/gz x-wrt_packages http://mirrors.cloud.tencent.com/openwrt/releases/23.05.0-rc3/packages/mipsel_24kc/packages
+src/gz x-wrt_routing http://mirrors.cloud.tencent.com/openwrt/releases/23.05.0-rc3/packages/mipsel_24kc/routing
+src/gz x-wrt_telephony http://mirrors.cloud.tencent.com/openwrt/releases/23.05.0-rc3/packages/mipsel_24kc/telephony
+```
+
+#### 22.03.5
 
 ```
 src/gz openwrt_core http://mirrors.cloud.tencent.com/openwrt/releases/22.03.5/targets/ramips/mt7621/packages
@@ -106,19 +117,7 @@ src/gz openwrt_routing http://mirrors.cloud.tencent.com/openwrt/releases/22.03.5
 src/gz openwrt_telephony http://mirrors.cloud.tencent.com/openwrt/releases/22.03.5/packages/mipsel_24kc/telephony
 ```
 
-### 23.05.0-rc3
-
-```
-src/gz x-wrt_core http://mirrors.cloud.tencent.com/openwrt/releases/23.05.0-rc3/targets/ramips/mt7621/packages
-src/gz x-wrt_base http://mirrors.cloud.tencent.com/openwrt/releases/23.05.0-rc3/packages/mipsel_24kc/base
-src/gz x-wrt_luci http://mirrors.cloud.tencent.com/openwrt/releases/23.05.0-rc3/packages/mipsel_24kc/luci
-src/gz x-wrt_packages http://mirrors.cloud.tencent.com/openwrt/releases/23.05.0-rc3/packages/mipsel_24kc/packages
-src/gz x-wrt_routing http://mirrors.cloud.tencent.com/openwrt/releases/23.05.0-rc3/packages/mipsel_24kc/routing
-src/gz x-wrt_telephony http://mirrors.cloud.tencent.com/openwrt/releases/23.05.0-rc3/packages/mipsel_24kc/telephony
-
-```
-
-### snapshots
+#### snapshots
 
 ```
 src/gz x-wrt_core https://openwrt.proxy.ustclug.org/snapshots/targets/ramips/mt7621/packages
@@ -142,6 +141,8 @@ src/gz x-wrt_telephony https://openwrt.proxy.ustclug.org/snapshots/packages/mips
 实时网速 `luci-i18n-nlbwmon`，[wrtbwmon](https://github.com/brvphoenix/wrtbwmon)，[luci-app-wrtbwmon](https://github.com/brvphoenix/luci-app-wrtbwmon)
 
 Clash [ShellClash](https://github.com/juewuy/ShellClash)，[OpenClash](https://github.com/vernesong/OpenClash)
+
+- 安装 `iptables-mod-tproxy`  `dnsmasq-full` `coreutils`
 
 V2Ray [openwrt-v2ray](https://github.com/kuoruan/openwrt-v2ray)，[luci-app-v2ray robberphex](https://github.com/robberphex/luci-app-v2ray)，[luci-app-v2ray kuoruan](https://github.com/kuoruan/luci-app-v2ray) [^luci-v2ray]
 

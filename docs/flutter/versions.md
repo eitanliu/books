@@ -10,10 +10,10 @@
 
 | 版本 | 发布时间 | Flutter 更新内容| Dart 更新内容 |
 | ----- | ----- | ----- | ---- |
-| 3.16 | 2023-11-15 | [What’s new in Flutter 3.16](https://medium.com/flutter/whats-new-in-flutter-3-16-dba6cb1015d1) | [Dart 3.2 release](https://medium.com/dartlang/dart-3-2-c8de8fe1b91f) |
-| 3.13 | 2023-08-16 | [What’s new in Flutter 3.13](https://medium.com/flutter/whats-new-in-flutter-3-13-479d9b11df4d) | [Dart 3.1 & functional style programming](https://medium.com/dartlang/dart-3-1-a-retrospective-on-functional-style-programming-in-dart-3-a1f4b3a7cdda) |
-| 3.10 | 2023-05-10 | [What’s new in Flutter 3.10](https://medium.com/flutter/whats-new-in-flutter-3-10-b21db2c38c73) | [Announcing Dart 3](https://medium.com/dartlang/announcing-dart-3-53f065a10635) |
-| 3.7  | 2023-01-25 | [What’s new in Flutter 3.7](https://medium.com/flutter/whats-new-in-flutter-3-7-38cbea71133c)<br/>[Flutter 3.7 正式发布](https://flutter.cn/posts/announcing-flutter-3-7) | [Introducing Dart 3 alpha](https://medium.com/dartlang/dart-3-alpha-f1458fb9d232) |
+| 3.16 | 2023-11-15 | [What’s new in Flutter 3.16](https://medium.com/flutter/whats-new-in-flutter-3-16-dba6cb1015d1)<br/>[Flutter 3.16 发布](https://juejin.cn/post/7301574930869321779) | [Dart 3.2 release](https://medium.com/dartlang/dart-3-2-c8de8fe1b91f)<br/>[Dart 3.2 更新](https://juejin.cn/post/7301637665765441574) |
+| 3.13 | 2023-08-16 | [What’s new in Flutter 3.13](https://medium.com/flutter/whats-new-in-flutter-3-13-479d9b11df4d)<br/>[Flutter 3.13 更新](https://juejin.cn/post/7268049978927546387) | [Dart 3.1 & functional style programming](https://medium.com/dartlang/dart-3-1-a-retrospective-on-functional-style-programming-in-dart-3-a1f4b3a7cdda) |
+| 3.10 | 2023-05-10 | [What’s new in Flutter 3.10](https://medium.com/flutter/whats-new-in-flutter-3-10-b21db2c38c73)<br/>[ Flutter 3.10 发布](https://juejin.cn/post/7231565908631633979) | [Announcing Dart 3](https://medium.com/dartlang/announcing-dart-3-53f065a10635)<br/>[Dart 3 正式版发布](https://juejin.cn/post/7231704360668839994) |
+| 3.7  | 2023-01-25 | [What’s new in Flutter 3.7](https://medium.com/flutter/whats-new-in-flutter-3-7-38cbea71133c)<br/>[Flutter 3.7 正式发布](https://flutter.cn/posts/announcing-flutter-3-7) | [Introducing Dart 3 alpha](https://medium.com/dartlang/dart-3-alpha-f1458fb9d232)<br/>[Dart 3α 预览](https://juejin.cn/post/7194741144482218045) |
 | 3.3  | 2022-08-31 | [What’s new in Flutter 3.3](https://medium.com/flutter/whats-new-in-flutter-3-3-893c7b9af1ff)<br/>[Flutter 3.3 正式发布](https://flutter.cn/posts/whats-new-in-flutter-3-3) | [Dart 2.18: Objective-C & Swift interop](https://medium.com/dartlang/dart-2-18-f4b3101f146c)<br/>[Dart 2.18 现已发布](https://flutter.cn/posts/dart-2-18) |
 
 {.th_1_30pt .th_2_70pt}
