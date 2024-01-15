@@ -20,9 +20,9 @@ export PATH=$PATH:$FLUTTER_HOME/bin:$DART_HOME/bin:$HOME/.pub-cache/bin
 
 ```shell
 # 默认版本号
-DEFAULT_VERSION="3.13.9"
+FLUTTER_VERSION="3.13.9"
 rm ~/Library/flutter
-ln -s ~/Library/flutter_${1:-$DEFAULT_VERSION} ~/Library/flutter
+ln -s ~/Library/flutter_${1:-$FLUTTER_VERSION} ~/Library/flutter
 ```
 
 传入版本执行命令
@@ -37,8 +37,8 @@ ln -s ~/Library/flutter_${1:-$DEFAULT_VERSION} ~/Library/flutter
 
 ```sh
 # 默认版本号
-DEFAULT_VERSION="3.13.9"
-export FLUTTER_HOME="~/Library/flutter_${1:-$DEFAULT_VERSION}"
+FLUTTER_VERSION="3.13.9"
+export FLUTTER_HOME="~/Library/flutter_${1:-$FLUTTER_VERSION}"
 export FLUTTER_ROOT=$FLUTTER_HOME
 export DART_HOME=$FLUTTER_HOME/bin/cache/dart-sdk
 export PATH=$FLUTTER_HOME/bin:$DART_HOME/bin:$PATH
@@ -65,12 +65,13 @@ setx FLUTTER_STORAGE_BASE_URL "https://storage.flutter-io.cn" /M
 setx FLUTTER_HOME "D:\Develop\flutter" /M
 setx FLUTTER_ROOT "%FLUTTER_HOME%" /M
 setx DART_HOME "%FLUTTER_HOME%\bin\cache\dart-sdk" /M
-setx Path %Path%;%FLUTTER_HOME%\bin;%DART_HOME%\bin;%USERPROFILE%\.pub-cache\bin /M
+for /f "tokens=3,*" %i in ('reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v Path ^| findstr /r /c:"^[ ]*Path"') do if not defined _OldPath set "_OldPath=%i"
+setx Path "%_OldPath%;%FLUTTER_HOME%\bin;%DART_HOME%\bin;%USERPROFILE%\.pub-cache\bin" /M
 ```
 
 ### 软链接指定版本
 
-新建保存 `flutter_ln.cmd` 为 Shell
+新建保存为 `flutter_ln.cmd` 
 
 ```cmd
 REM 接收版本参数
@@ -88,19 +89,31 @@ mklink /J "D:\Develop\flutter" "D:\Develop\flutter_%FLUTTER_VERSION%"
 
 ### 配置指定版本
 
-新建保存 `flutter_export.cmd` 为 Shell
+通过 `.` 命令传入版本执行脚本文件或加载脚本文件中的变量和函数， PowerShell中，可以使用 `.` 或 `&` 
+
+#### PowerShell
+
+新建保存为 `flutter_export.sh1` ，执行 `. .\flutter_export.sh1` 传入版本 
+
+```powershell
+param([string]$FLUTTER_VERSION = "3.13.9")
+$env:FLUTTER_HOME = "D:\Develop\flutter_$FLUTTER_VERSION"
+$env:DART_HOME = "$FLUTTER_HOME/bin/cache/dart-sdk"
+if (-not $env:_OldRunPath) { $env:_OldRunPath = "$env:Path" }
+$env:Path = "$env:FLUTTER_HOME\bin;$env:DART_HOME\bin;$env:_OldRunPath"
+```
+
+#### CMD
+
+新建保存为 `flutter_export.cmd` ，执行 `. .\flutter_export.cmd 3.16.7` 传入版本
 
 ```cmd
 set "FLUTTER_VERSION=%~1"
 if not defined FLUTTER_VERSION set FLUTTER_VERSION=3.13.9
 set FLUTTER_HOME="D:\Develop\flutter_%FLUTTER_VERSION%"
-set DART_HOME=$FLUTTER_HOME/bin/cache/dart-sdk
-set Path %FLUTTER_HOME%\bin;%DART_HOME%\bin;%Path% 
+set DART_HOME=%FLUTTER_HOME%/bin/cache/dart-sdk
+for /f "tokens=3,*" %%i in ('reg query "HKCU\Environment" /v Path ^| findstr /r /c:"^[ ]*Path"') do if not defined _OldUPath set "_OldUPath=%%i"
+set Path "%FLUTTER_HOME%\bin;%DART_HOME%\bin;%_OldUPath%"
 ```
 
-通过 `.` 命令传入版本执行脚本文件或加载脚本文件中的变量和函数， PowerShell中，可以使用 `.` 或 `&` 
-
-```cmd
-. .\flutter_export.cmd 3.16.7
-```
 
