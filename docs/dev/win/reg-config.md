@@ -2,14 +2,14 @@
 
 ## 获取环境变量
 
-```cmd
+```bat
 REM 读取用户环境配置
 reg query "HKCU\Environment"
 RMG 读取系统环境变量
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v Path
 REM 读取运行环境变量
 set Path
-echo %Path%	
+echo %Path%
 ```
 
 ### PowerShell
@@ -47,7 +47,7 @@ Write-Host "Inside script block: $MyVariable"
 
 批处理脚本中（而不是直接在 CMD 中运行），需要将 `%i` 改为 `%%i`
 
-```cmd
+```bat
 @echo off
 RME 读取所在行
 (reg query "HKCU\Environment" /v Path) ^| findstr /r /c:"^[ ]*Path"
@@ -62,8 +62,8 @@ reg add HKCU\Environment /v PUB_CACHE /t REG_EXPAND_SZ /d "%USERPROFILE%\.pub-ca
 
 ### Windows 11
 
-```cmd
+```bat
 REM 默认Path
-setx Path "%SystemRoot%\System32;%SystemRoot%;%SystemRoot%\System32\wbem;%SystemRoot%\System32\WindowsPowerShell\v1.0;%SystemRoot%\System32\OpenSSH;"
+setx Path "%SystemRoot%\System32;%SystemRoot%;%SystemRoot%\System32\wbem;%SystemRoot%\System32\WindowsPowerShell\v1.0;%SystemRoot%\System32\OpenSSH;" /M
 ```
 
