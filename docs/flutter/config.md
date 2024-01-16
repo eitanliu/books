@@ -65,7 +65,7 @@ setx Path "%_OldPath%;%FLUTTER_HOME%\bin;%DART_HOME%\bin;%USERPROFILE%\.pub-cach
 
 ### 软链接指定版本
 
-新建保存为 `flutter_ln.bat` ，执行 .\flutter_ln.bat 3.10.6` 传入版本 
+新建保存为 `flutter_ln.bat` ，执行 `.\flutter_ln.bat 3.10.6` 传入版本 
 
 ```bat
 REM 接收版本参数
@@ -77,7 +77,7 @@ mklink /J "D:\Develop\flutter" "D:\Develop\flutter_%FLUTTER_VERSION%"
 
 ### 临时配置指定版本
 
-通过 `.` 命令传入版本执行脚本文件或加载脚本文件中的变量和函数， PowerShell中，可以使用 `.` 或 `&` 
+通过 `.` 命令传入版本执行脚本文件或加载脚本文件中的变量和函数， PowerShell中可以使用 `.` 或 `&` 
 
 #### PowerShell
 

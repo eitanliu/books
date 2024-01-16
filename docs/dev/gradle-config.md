@@ -1,6 +1,6 @@
 # Gradle 配置
 
-## 全局配置Aliyun代理
+## 全局配置Maven代理
 
 `~/.gradle/` 目录下创建编辑 [init.gradle](https://gist.github.com/eitanliu/a8123e4d13d9068df37325af40494963) Kotlin 版本  [init.gradle.kts](https://gist.github.com/bennyhuo/af7c43cc4831661193605e124f539942)
 
@@ -120,6 +120,18 @@ gradle.beforeSettings { settings ->
 
 ```
 
+## 配置网络代理
+
+创建编辑 `gradle.properties`
+
+```properties
+systemProp.http.proxyHost=127.0.0.1
+systemProp.http.proxyPort=1081
+systemProp.socks.nonProxyHosts=localhost,172.16.6.241
+systemProp.socks.proxyHost=127.0.0.1
+systemProp.socks.proxyPort=1080
+```
+
 ## 缓存配置
 
 [Gradle Directories](https://docs.gradle.org/current/userguide/directory_layout.html#dir:gradle_user_home)  
@@ -155,8 +167,6 @@ beforeSettings { settings ->
     }
 }
 ```
-
-
 
 ## Gradle 下载
 

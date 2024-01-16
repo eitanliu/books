@@ -18,7 +18,10 @@ echo %Path%
 
 ```powershell
 # 使用 reg query
-(reg query 'HKCU\Environment' /v Path) -split "`n" | ForEach-Object { if ($_ -match '\s*Path\s*REG_EXPAND_SZ\s*(.+)') { $Matches[1]; break }}
+# (reg query 'HKCU\Environment' /v Path) -split "`n" | ForEach-Object { if ($_ -match '\s*Path\s*REG_EXPAND_SZ\s*(.+)') { $Matches[1]; break }}
+(reg query 'HKCU\Environment' /v Path) -split "`n" | Where-Object { $_ -match '\s*Path\s*REG_EXPAND_SZ\s*(.+)'} | ForEach-Object { $Matches[1] }
+[environment]::SetEnvironmentvariable("CLASSPATH", ".;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;", "User")
+if (-not $env:_OldUPath) { $env:_OldUPath = (reg query 'HKCU\Environment' /v Path) -split "`n" | Where-Object { $_ -match '\s*Path\s*REG_EXPAND_SZ\s*(.+)'} | ForEach-Object { $Matches[1] } }
 # 所有环境变量
 ls env:
 # 使用 Get-ItemPropertyValue 获取注册表中 Path 环境变量的值
