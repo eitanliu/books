@@ -35,6 +35,7 @@ export default defineUserConfig({
                 },
             },
             mdEnhance: {
+                tabs: true, // 选项卡
                 attrs: true, // H5 属性支持
                 footnote: true, // 脚注
             },
