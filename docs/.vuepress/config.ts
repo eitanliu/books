@@ -35,9 +35,10 @@ export default defineUserConfig({
                 },
             },
             mdEnhance: {
-                tabs: true, // 选项卡
                 attrs: true, // H5 属性支持
                 footnote: true, // 脚注
+                tabs: true, // 选项卡
+                codetabs: true, // 代码块分组
             },
         },
     }),

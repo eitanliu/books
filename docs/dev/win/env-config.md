@@ -28,7 +28,7 @@ Get-ItemPropertyValue -Path "HKCU:\Environment" -Name "Path"
 
 获取的环境变量都是转换后的实际路径地址，如果要修改新增建议使用注册通用表方式获取。
 
-::: tabs#shell
+::: code-tabs#shell
 
 @tab PowerShell
 
@@ -58,7 +58,7 @@ echo %Path%
 通用设置环境变量 `setx` ，会根据内容是否带有 `%Name%` 自动判断保存类型， `/M` 表示系统变量。  
 PowerShell `[environment]::SetEnvironmentvariable` PowerShell 中设置的环境，必须是绝对路径不能带有 `%Name%` 的拼接，最终注册表类型是`REG_SZ `  
 
-::: tabs#shell
+::: code-tabs#shell
 
 @tab PowerShell
 
@@ -94,7 +94,7 @@ setx __MY_DEVSOFTWARE "D:\Develop" /M
 - Qword：指定一个 64 位的二进制数字。 用于 REG_QWORD 值。
 - Unknown：指示不受支持的注册表数据类型，例如 REG_RESOURCE_LIST 值。
 
-::: tabs#shell
+::: code-tabs#shell
 
 @tab PowerShell
 
@@ -109,9 +109,9 @@ New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\E
 @tab CMD
 
 ```bat
-# 设置用户环境变量
+REM 设置用户环境变量
 reg add HKCU\Environment /v ANDROID_HOME_ROOT /t REG_EXPAND_SZ /d ^%__MY_DEVSOFTWARE^%\Android\Sdk /f
-# 设置系统环境变量
+REM 设置系统环境变量
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v ANDROID_HOME_ROOT /t REG_EXPAND_SZ /d ^%__MY_DEVSOFTWARE^%\JDK\current /f
 ```
 
@@ -119,7 +119,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v A
 
 ## 常用命令
 
-::: tabs#shell
+::: code-tabs#shell
 
 @tab PowerShell
 
@@ -145,7 +145,7 @@ setx __MY_DEVSOFTWARE "D:\Develop" /M
 
 ### Git
 
-:::tabs#shell
+:::code-tabs#shell
 @tab PowerShell
 
 ```powershell
@@ -160,17 +160,51 @@ setx Path %_OldPath%;^%__MY_DEVSOFTWARE^%\Git\cmd /M
 ```
 :::
 
-### Windows Kit
+**Git 代理配置**[^git-proxy]
 
-```bat
-REM D:\Windows Kits\10\Windows Performance Toolkit\
+:::code-tabs
+
+@tab ssh
+
+```yaml
+# %USERPROFILE%\.ssh\config
+# ~/.ssh/config
+
+Host *
+    ServerAliveInterval 60
+Host github.com
+   # ssh.github.com 详见 https://help.github.com/articles/using-ssh-over-the-https-port/
+   HostName github.com
+   User git
+   # HTTP 代理
+   # ProxyCommand socat - PROXY:<proxy_host>:%h:%p,proxyport=<proxy_port>
+   # Linux/Mac socks5 代理
+   # ProxyCommand nc -v -x <socks_host>:<socks_port> %h %p
+   # Windows socks5 代理
+   ProxyCommand connect -S <socks_host>:<socks_port> -a none %h %p
+
+# 多帐号多证书别名
+Host <alias>.github.com
+   IdentityFile ~/.ssh/id_rsa_<alias>
+   HostName github.com
+   User git
+   ProxyCommand connect -S <socks_host>:<socks_port> -a none %h %p
 ```
+
+@tab http
+
+```powershell
+git config --global http.proxy http://<proxy_host>:<proxy_port>
+git config --global https.proxy http://<proxy_host>:<proxy_port>
+```
+
+:::
 
 ### JDK
 
 **设置到用户环境**
 
-::: tabs#shell
+::: code-tabs#shell
 
 @tab PowerShell
 
@@ -194,7 +228,7 @@ setx Path ^%JAVA_HOME^%\bin;^%JAVA_HOME^%\jre\bin;%_OldUPath%
 
 **设置到系统环境**
 
-::: tabs#shell
+::: code-tabs#shell
 
 @tab PowerShell
 
@@ -220,7 +254,7 @@ setx Path %_OldPath%;^%JAVA_HOME^%\bin;^%JAVA_HOME^%\jre\bin; /M
 
 ### Android
 
-::: tabs#shell
+::: code-tabs#shell
 
 @tab PowerShell
 
@@ -255,7 +289,7 @@ setx Path %_OldUPath%;^%ANDROID_SDK_ROOT^%\tools;^%ANDROID_SDK_ROOT^%\platform-t
 
 ### Flutter
 
-:::tabs#shell
+:::code-tabs#shell
 @tab PowerShell
 
 ```powershell
@@ -295,6 +329,93 @@ setx Path %_OldUPath%;^%FLUTTER_HOME^%\bin;^%FLUTTER_HOME_DART^%\bin;^%FLUTTER_P
 ```
 :::
 
+### Windows Kit
+
+```bat
+REM D:\Windows Kits\10\Windows Performance Toolkit\
+```
+
+## 代理设置
+
+::: code-tabs#shell
+
+@tab PowerShell
+
+```powershell
+# 设置代理
+[System.Environment]::SetEnvironmentVariable("http_proxy", "http://<proxy_host>:<proxy_port>", "User")
+[System.Environment]::SetEnvironmentVariable("https_proxy", "http://<proxy_host>:<proxy_port>", "User")
+# 取消设置
+[System.Environment]::SetEnvironmentVariable("http_proxy", $null, "User")
+[System.Environment]::SetEnvironmentVariable("https_proxy", $null, "User")
+# Git
+git config --global http.proxy http://<proxy_host>:<proxy_port>
+git config --global https.proxy http://<proxy_host>:<proxy_port>
+```
+
+@tab CMD
+
+```bat
+REM 设置代理
+setx http_proxy "http://<proxy_host>:<proxy_port>"
+setx https_proxy "http://<proxy_host>:<proxy_port>"
+REM 取消设置
+reg delete HKCU\Environment /F /V http_proxy
+reg delete HKCU\Environment /F /V https_proxy
+git config --global http.proxy http://<proxy_host>:<proxy_port>
+git config --global https.proxy http://<proxy_host>:<proxy_port>
+```
+
+@tab vmoptions
+
+```properties
+-Dhttp.proxyHost=<proxy_host>
+-Dhttp.proxyPort=<proxy_port>
+-Dhttps.proxyHost=<proxy_host>
+-Dhttps.proxyPort=<proxy_port>
+# -Dhttp.proxyUser=<proxy_username>
+# -Dhttp.proxyPassword=<proxy_password>
+# -Dhttps.proxyUser=<proxy_username>
+# -Dhttps.proxyPassword=<proxy_password>
+```
+
+@tab gradle
+
+```properties
+# %USERPROFILE%\.gradle\gradle.properties
+# ~/.gradle/gradle.properties
+
+systemProp.socks.proxyHost=<socks_host>
+systemProp.socks.proxyPort=<socks_port>
+#systemProp.socks.proxyUser=<socks_username>
+#systemProp.socks.proxyPassword=<socks_password>
+systemProp.socks.nonProxyHosts=localhost, 127.0.0.1, 127.*, 10.*, 192.168.*, 172.16.*
+
+#systemProp.http.proxyHost=<proxy_host>
+#systemProp.http.proxyPort=<proxy_port>
+#systemProp.http.proxyUser=<proxy_username>
+#systemProp.http.proxyPassword=<proxy_password>
+
+#systemProp.https.proxyHost=<proxy_host>
+#systemProp.https.proxyPort=<proxy_port>
+#systemProp.https.proxyUser=<proxy_username>
+#systemProp.https.proxyPassword=<proxy_password>
+```
+
+:::
+
+### 临时设置代理
+
+```powershell
+# 设置忽略代理列表，不同软件要求不一样
+# 通常 Windows 应用是 `;` 来分隔，Java 应用是 `,` 加空格来分隔
+set no_proxy ".local;localhost;127.*;10.*;172.16.*;172.17.*;172.18.*;172.19.*;172.20.*;172.21.*;172.22.*;172.23.*;172.24.*;172.25.*;172.26.*;172.27.*;172.28.*;172.29.*;172.30.*;172.31.*;192.168.*"
+```
+
+[配置 Visual Studio 使用指定的代理服务器访问网络](https://www.cnblogs.com/xwgli/p/17511767.html)
+
+[defaultProxy 元素](https://learn.microsoft.com/zh-cn/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)
+
 ## 默认环境变量
 
 ### Windows 11
@@ -305,3 +426,4 @@ setx Path "%SystemRoot%\System32;%SystemRoot%;%SystemRoot%\System32\wbem;%System
 ```
 
 [^get-item]: [Get-ItemProperty](https://learn.microsoft.com/zh-cn/powershell/module/microsoft.powershell.management/get-itemproperty?view=powershell-7.4)
+[^git-proxy]: [git ssh 代理设置](https://gist.github.com/chenshengzhi/07e5177b1d97587d5ca0acc0487ad677)  
