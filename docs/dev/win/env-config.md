@@ -75,6 +75,9 @@ setx __MY_DEVSOFTWARE "D:\Develop" /M
 @tab CMD
 
 ```bat
+REM 设置用户环境变量
+setx __MY_DEVSOFTWARE "D:\Develop"
+REM 设置系统环境变量
 setx __MY_DEVSOFTWARE "D:\Develop" /M
 ```
 
@@ -86,13 +89,13 @@ setx __MY_DEVSOFTWARE "D:\Develop" /M
 
 可通过 `-PropertyType` 指定添加的属性类型。 此参数的可接受值为：
 
-- String：指定以 null 结尾的字符串。 用于 REG_SZ 值。
-- ExpandString：指定一个以 null 结尾的字符串，该字符串包含对环境变量的未扩展的引用，这些引用会在检索值时扩展。 用于 REG_EXPAND_SZ 值。
-- Binary：指定采用任意格式的二进制数据。 用于 REG_BINARY 值。
-- DWord：指定一个 32 位的二进制数字。 用于 REG_DWORD 值。
-- MultiString：指定一个包含以 null 结尾的字符串的数组，该数组以两个 null 字符结尾。 用于 REG_MULTI_SZ 值。
-- Qword：指定一个 64 位的二进制数字。 用于 REG_QWORD 值。
-- Unknown：指示不受支持的注册表数据类型，例如 REG_RESOURCE_LIST 值。
+- `String`：指定以 null 结尾的字符串。 用于 `REG_SZ` 值。
+- `ExpandString`：指定一个以 null 结尾的字符串，该字符串包含对环境变量的未扩展的引用，这些引用会在检索值时扩展。 用于 `REG_EXPAND_SZ` 值。
+- `Binary`：指定采用任意格式的二进制数据。 用于 `REG_BINARY` 值。
+- `DWord`：指定一个 32 位的二进制数字。 用于 `REG_DWORD` 值。
+- `MultiString`：指定一个包含以 null 结尾的字符串的数组，该数组以两个 null 字符结尾。 用于 `REG_MULTI_SZ` 值。
+- `Qword`：指定一个 64 位的二进制数字。 用于 `REG_QWORD` 值。
+- `Unknown`：指示不受支持的注册表数据类型，例如 `REG_RESOURCE_LIST` 值。
 
 ::: code-tabs#shell
 
@@ -166,7 +169,7 @@ setx Path %_OldPath%;^%__MY_DEVSOFTWARE^%\Git\cmd /M
 
 @tab ssh
 
-```yaml
+```ini
 # %USERPROFILE%\.ssh\config
 # ~/.ssh/config
 
@@ -262,7 +265,7 @@ setx Path %_OldPath%;^%JAVA_HOME^%\bin;^%JAVA_HOME^%\jre\bin; /M
 # SDK 路径
 setx ANDROID_SDK_ROOT "%__MY_DEVSOFTWARE%\Android\Sdk"
 # setx ANDROID_HOME "%ANDROID_SDK_ROOT%"
-# setx ANDROID_ROOT "%__MY_DEVSOFTWARE%"
+# setx ANDROID_ROOT "%ANDROID_SDK_ROOT%"
 # setx ANDROID_NDK "%ANDROID_SDK_ROOT%\ndk-bundle"
 # 模拟器路径
 # set ANDROID_SDK_HOME "%USERPROFILE%\.android"
@@ -337,7 +340,7 @@ REM D:\Windows Kits\10\Windows Performance Toolkit\
 
 ## 代理设置
 
-::: code-tabs#shell
+::: code-tabs
 
 @tab PowerShell
 

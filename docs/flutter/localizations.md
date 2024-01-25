@@ -42,16 +42,17 @@
 
      ```yaml
      arb-dir: lib/l10n
-     template-arb-file: intl_zh.arb
+     #template-arb-file: app_en.arb
+     template-arb-file: app_zh.arb
      nullable-getter: false
      #懒加载
      #use-deferred-loading: true
      #禁用{}转译
      #use-escaping: false
-     #指定生成目录
+     #指定生成目录 synthetic-package flase 才能生效
      #synthetic-package: false
      #output-dir: lib/generated
-     output-class: S
+     output-class: AppLocalizations
      output-localization-file: app_localizations.dart
      ```
    
@@ -151,7 +152,7 @@ MaterialApp(
 }
 ```
 
-### 复数 Plurals
+### 复数 Plurals (数值枚举)
 
 包含一个 `num` 参数，指定如何在不同情况下返回内容，类似模板如下：
 
@@ -176,7 +177,7 @@ MaterialApp(
 }
 ```
 
-### 选择器 Selects
+### 选择器 Selects (字符串枚举)
 
 包含一个 `String` 参数，指定如何在不同情况下返回内容，类似模板如下：
 
