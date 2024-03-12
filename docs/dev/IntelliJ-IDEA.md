@@ -74,6 +74,14 @@ Switcher 窗口下 `ctrl shift`  配合 `left right up down` 快速选择文件�
 
 ## 配置修改
 
+### IDE注册表配置
+
+`Help -> Find Action` 搜索 `Registry`
+
+### 编码格式
+
+`Settings > Editor > File Encodings` 统一选择为 `UTF-8`
+
 ### 代码风格
 
 #### 取消注释在开头

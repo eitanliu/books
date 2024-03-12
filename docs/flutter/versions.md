@@ -3,10 +3,11 @@
   table.th_1_30pt th:first-of-type {
     min-width: 30pt;
   }
-  table.th_2_70pt th:nth-of-type(2) {
-    min-width: 70pt;
+  table.th_2_72pt th:nth-of-type(2) {
+    min-width: 72pt;
   }
 </style>
+
 
 | 版本 | 发布时间 | Flutter 更新内容| Dart 更新内容 |
 | ----- | ----- | ----- | ---- |
@@ -16,7 +17,7 @@
 | 3.7  | 2023-01-25 | [What’s new in Flutter 3.7](https://medium.com/flutter/whats-new-in-flutter-3-7-38cbea71133c)<br/>[Flutter 3.7 正式发布](https://flutter.cn/posts/announcing-flutter-3-7) | [Introducing Dart 3 alpha](https://medium.com/dartlang/dart-3-alpha-f1458fb9d232)<br/>[Dart 3α 预览](https://juejin.cn/post/7194741144482218045) |
 | 3.3  | 2022-08-31 | [What’s new in Flutter 3.3](https://medium.com/flutter/whats-new-in-flutter-3-3-893c7b9af1ff)<br/>[Flutter 3.3 正式发布](https://flutter.cn/posts/whats-new-in-flutter-3-3) | [Dart 2.18: Objective-C & Swift interop](https://medium.com/dartlang/dart-2-18-f4b3101f146c)<br/>[Dart 2.18 现已发布](https://flutter.cn/posts/dart-2-18) |
 
-{.th_1_30pt .th_2_70pt}
+{.th_1_30pt .th_2_72pt}
 
 <details>
   <summary>旧版</summary>
@@ -30,7 +31,7 @@
 | 2.2 | 2021-05-18 | [What’s New in Flutter 2.2](https://medium.com/flutter/whats-new-in-flutter-2-2-fd00c65e2039)<br/>[一起看 I/O：Flutter 2.2 更新详解](https://flutter.cn/posts/whats-new-in-flutter-2-2) | [Announcing Dart 2.13](https://medium.com/dartlang/announcing-dart-2-13-c6d547b57067)<br/>[一起看 I/O：Dart 2.13 版现已发布](https://flutter.cn/posts/announcing-dart-2-13) |
 | 2 | 2021-03-08 | [What’s new in Flutter 2](https://medium.com/flutter/whats-new-in-flutter-2-0-fe8e95ecc65)<br>[无限可能：Flutter 2 重点更新一览](https://flutter.cn/posts/whats-new-in-flutter-2-0) | [Announcing Dart 2.12](https://medium.com/dartlang/announcing-dart-2-12-499a6e689c87)<br/>[Dart 2.12 现已发布](https://flutter.cn/posts/announcing-dart-2-12) |
 
-{.th_1_30pt .th_2_70pt}
+{.th_1_30pt .th_2_72pt}
 
 </details>
 
