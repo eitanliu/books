@@ -2,21 +2,11 @@
 
 ## 版本介绍
 
-- Clash：一个 Go 语言开发的多平台代理客户端[^clash]，使用文档[^clash-doc]  
-- Clash Premium：Clash 上添加 TUN 和更多支持的专有内核(免费)[^clash-pre]  
-- ClashX：Clash 的 Mac 图形客户端[^clash-x]  
-- ClashX Pro：Clash Premium 的 Mac 图形客户端[^clash-x-pro]
-- ClashForAndroid：Clash 的 Android 图形客户端[^clash-android]  
-- Clash for Windows：Clash 的 Windows/macOS/Linux 图形客户端[^clash-wfc] ，使用文档[^clash-wfc-doc]  
+- ClashVerge：一个 Tarui 语言开发的多平台代理客户端[^clash-verge]
+- MetaCubeX：ClashVerge 上使用的内核[^MetaCubeX]  
 
-[^clash]: [Clash-Github](https://github.com/Dreamacro/clash)  
-[^clash-doc]: [Clash-Doc](https://dreamacro.github.io/clash/zh_CN/)
-[^clash-pre]: [Clash Premium](https://github.com/Dreamacro/clash/releases/tag/premium)
-[^clash-x]: [ClashX-Github](https://github.com/yichengchen/clashX)  
-[^clash-x-pro]: [ClashX Pro](https://install.appcenter.ms/users/clashx/apps/clashx-pro/distribution_groups/public)
-[^clash-android]: [ClashForAndroid-Github](https://github.com/Kr328/ClashForAndroid)  
-[^clash-wfc]: [ClashForWindows-Github](https://github.com/Fndroid/clash_for_windows_pkg)  
-[^clash-wfc-doc]: [ClashFowWindkow-Docs](https://docs.cfw.lbyczf.com/)  
+[^clash-verge]: [Clash Verge-Github](https://github.com/clash-verge-rev/clash-verge-rev)  
+[^MetaCubeX]: [https://github.com/MetaCubeX/mihomo](https://github.com/MetaCubeX/mihomo)
 
 ## Proxies
 
@@ -73,13 +63,38 @@ https://cdn.jsdelivr.net/gh/openrunner/clash-freenode@main/clash.yaml
 
 ## Rules
 
-dns-通配符域名匹配 [^dns-matching]
+dns-通配符域名匹配 [^dns-matching]  
+使用星号 (`*`) 来匹配单级通配符子域名.  
+
+| 表达式             | 匹配                            | 不匹配                     |
+| :----------------- | :------------------------------ | :------------------------- |
+| `*.google.com`     | `www.google.com`                | `google.com`               |
+| `*.bar.google.com` | `foo.bar.google.com`            | `bar.google.com`           |
+| `*.*.google.com`   | `thoughtful.sandbox.google.com` | `one.two.three.google.com` |
+
+使用点号 (`.`) 来匹配多级通配符子域名.  
+
+| 表达式        | 匹配                            | 不匹配       |
+| :------------ | :------------------------------ | :----------- |
+| `.google.com` | `www.google.com`                | `google.com` |
+| `.google.com` | `thoughtful.sandbox.google.com` | `google.com` |
+| `.google.com` | `one.two.three.google.com`      | `google.com` |
+
+使用加号 (`+`) 来匹配多级通配符子域名.  
+`+` 通配符的工作方式类似于 `DOMAIN-SUFFIX`, 您可以一次进行多级的快速匹配.  
+
+| 表达式         | 匹配                            |
+| :------------- | :------------------------------ |
+| `+.google.com` | `google.com`                    |
+| `+.google.com` | `www.google.com`                |
+| `+.google.com` | `thoughtful.sandbox.google.com` |
+| `+.google.com` | `one.two.three.google.com`      |
 
 geoip 国家代码 [^geoname-statistics]
 
 规则集 [^Loyalsoldier-clash-rules]
 
-[^dns-matching]: [通配符域名匹配](https://dreamacro.github.io/clash/zh_CN/configuration/getting-started.html#dns-%E9%80%9A%E9%85%8D%E7%AC%A6%E5%9F%9F%E5%90%8D%E5%8C%B9%E9%85%8D)
+[^dns-matching]: [通配符域名匹配](https://clash.wiki/configuration/getting-started.html#dns-%E9%80%9A%E9%85%8D%E7%AC%A6%E5%9F%9F%E5%90%8D%E5%8C%B9%E9%85%8D)
 [^geoname-statistics]: [GeoNames Country statistics](https://www.geonames.org/statistics/)  
 [^Loyalsoldier-clash-rules]: [Loyalsoldier/clash-rules](https://github.com/Loyalsoldier/clash-rules/)
 

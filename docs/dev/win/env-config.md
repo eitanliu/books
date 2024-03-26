@@ -430,3 +430,6 @@ setx Path "%SystemRoot%\System32;%SystemRoot%;%SystemRoot%\System32\wbem;%System
 
 [^get-item]: [Get-ItemProperty](https://learn.microsoft.com/zh-cn/powershell/module/microsoft.powershell.management/get-itemproperty?view=powershell-7.4)
 [^git-proxy]: [git ssh 代理设置](https://gist.github.com/chenshengzhi/07e5177b1d97587d5ca0acc0487ad677)  
+[^git-proxy2]: [为 Git 设置 HTTPS&SSH 代理 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/520414657)   
+[^git-proxy3]: [git 设置和取消指定域名代理 - git config proxy - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/107323951)  
+
