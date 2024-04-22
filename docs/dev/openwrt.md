@@ -117,7 +117,27 @@ src/gz openwrt_routing http://mirrors.cloud.tencent.com/openwrt/releases/22.03.5
 src/gz openwrt_telephony http://mirrors.cloud.tencent.com/openwrt/releases/22.03.5/packages/mipsel_24kc/telephony
 ```
 
+#### 23.05.2
+
+```
+src/gz x-wrt_core http://mirrors.cloud.tencent.com/openwrt/releases/23.05.2/targets/ramips/mt7621/packages
+src/gz x-wrt_base http://mirrors.cloud.tencent.com/openwrt/releases/23.05.2/packages/mipsel_24kc/base
+src/gz x-wrt_luci http://mirrors.cloud.tencent.com/openwrt/releases/23.05.2/packages/mipsel_24kc/luci
+src/gz x-wrt_packages http://mirrors.cloud.tencent.com/openwrt/releases/23.05.2/packages/mipsel_24kc/packages
+src/gz x-wrt_routing http://mirrors.cloud.tencent.com/openwrt/releases/23.05.2/packages/mipsel_24kc/routing
+src/gz x-wrt_telephony http://mirrors.cloud.tencent.com/openwrt/releases/23.05.2/packages/mipsel_24kc/telephony
+```
+
 #### snapshots
+
+```
+src/gz x-wrt_core http://mirrors.cloud.tencent.com/openwrt/snapshots/targets/ramips/mt7621/packages
+src/gz x-wrt_base http://mirrors.cloud.tencent.com/openwrt/snapshots/packages/mipsel_24kc/base
+src/gz x-wrt_luci http://mirrors.cloud.tencent.com/openwrt/snapshots/packages/mipsel_24kc/luci
+src/gz x-wrt_packages http://mirrors.cloud.tencent.com/openwrt/snapshots/packages/mipsel_24kc/packages
+src/gz x-wrt_routing http://mirrors.cloud.tencent.com/openwrt/snapshots/packages/mipsel_24kc/routing
+src/gz x-wrt_telephony http://mirrors.cloud.tencent.com/openwrt/snapshots/packages/mipsel_24kc/telephony
+```
 
 ```
 src/gz x-wrt_core https://openwrt.proxy.ustclug.org/snapshots/targets/ramips/mt7621/packages
@@ -134,13 +154,14 @@ src/gz x-wrt_telephony https://openwrt.proxy.ustclug.org/snapshots/packages/mips
 
 ## 常用功能
 
-限速 `sqm`  `qos`多拨 `mwan`，文件共享`samba`，下载`transmission`，`aria2`
-
-文件管理[filebrowser](https://github.com/filebrowser/filebrowser/releases/)， [luci-app-fileassistant](https://cowtransfer.com/s/8cfa3708916c4d) [^fileassistant]
-
-实时网速 `luci-i18n-nlbwmon`，[wrtbwmon](https://github.com/brvphoenix/wrtbwmon)，[luci-app-wrtbwmon](https://github.com/brvphoenix/luci-app-wrtbwmon)
-
-Clash [ShellClash](https://github.com/juewuy/ShellClash)，[OpenClash](https://github.com/vernesong/OpenClash)
+终端 `ttyd`   
+限速 `sqm`  `qos`   
+多拨 `mwan`  
+端口转发 [gdy666/lucky](https://github.com/gdy666/lucky)，[4IceG/luci-app-socat](https://github.com/4IceG/luci-app-socat)[^socat]  
+文件共享 `samba` ，下载 `transmission`，`aria2`  
+文件管理[filebrowser](https://github.com/filebrowser/filebrowser/releases/)， [luci-app-fileassistant](https://cowtransfer.com/s/8cfa3708916c4d) [^fileassistant]  
+实时网速 `luci-i18n-nlbwmon`，[wrtbwmon](https://github.com/brvphoenix/wrtbwmon)，[luci-app-wrtbwmon](https://github.com/brvphoenix/luci-app-wrtbwmon)  
+Clash [ShellClash](https://github.com/juewuy/ShellClash)，[OpenClash](https://github.com/vernesong/OpenClash)  
 
 - 安装 `iptables-mod-tproxy`  `dnsmasq-full` `coreutils`
 
@@ -149,7 +170,7 @@ V2Ray [openwrt-v2ray](https://github.com/kuoruan/openwrt-v2ray)，[luci-app-v2ra
 - 安装 `iptables-mod-tproxy`  `ip6tables-nft`  `dnsmasq-full`
 - `/var/etc/luci_v2ray/v2ray.main.json`
 
-Xray [openwrt-xray](https://github.com/yichya/openwrt-xray)，[luci-app-xray](https://github.com/yichya/luci-app-xray/releases)
+Xray[xiaorouji/openwrt-passwall](https://github.com/xiaorouji/openwrt-passwall/releases) ，[openwrt-xray](https://github.com/yichya/openwrt-xray)，[luci-app-xray](https://github.com/yichya/luci-app-xray/releases)
 
 - 安装 `ip6tables-nft`  `kmod-nft-tproxy`
 - `/var/etc/xray/config.json`
@@ -158,3 +179,10 @@ Xray [openwrt-xray](https://github.com/yichya/openwrt-xray)，[luci-app-xray](ht
 [^factory-sysupdate-diff2]: [请教factory与sysupdate区别-OPENWRT专版](https://www.right.com.cn/forum/thread-73947-1-1.html)  
 [^fileassistant]: [luci-app-fileassistantopenwrt](https://www.wanuse.com/2023/01/luci-app-fileassistantopenwrt.html)  
 [^luci-v2ray]: [OpenWrt 如何安装 V2ray 和 V2ray安装Luci-V2ray配置详解](https://uzbox.com/tech/v2ray-for-openwrt.html)
+[^socat]: [在OpenWrt安装socat的网页配置版，实现公网IPV6转发内网IPV4](https://zhuanlan.zhihu.com/p/559034124)
+
+[openwrt挂载webdav网盘的方法 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/673909221)  
+[alist-org/alis](https://github.com/alist-org/alist)  
+[luci-app-alist](https://github.com/sbwml/luci-app-alist)  
+[使用alist将云盘映射为WebDAV_alist webdav-CSDN博客](https://blog.csdn.net/qq_27386899/article/details/127451571)  
+[windows10挂载webdav_win10 webdav-CSDN博客](https://blog.csdn.net/qq_38894585/article/details/128818512)  

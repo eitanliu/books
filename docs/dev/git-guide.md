@@ -43,13 +43,9 @@ git push -u origin --tags
 ### Proxy
 
 #### GitHub Proxy
- [GitHub Proxy 代理加速](https://ghproxy.com/) 原始地址前添加 `https://ghproxy.com/` 
-```shell
-git clone https://ghproxy.com/https://github.com/stilleshan/ServerStatus
-git clone https://user:your_token@ghproxy.com/https://github.com/your_name/your_private_repo
-wget https://ghproxy.com/https://github.com/stilleshan/ServerStatus/archive/master.zip
-wget https://ghproxy.com/https://raw.githubusercontent.com/stilleshan/ServerStatus/master/Dockerfile
-```
+
+**[gh-proxy](https://github.com/hunshcn/gh-proxy)** 原始地址前添加代理服务器 [https://mirror.ghproxy.com/](https://mirror.ghproxy.com/)   
+备用服务器：[GitHub 文件加速 (hunshcn.github.io)](https://hunshcn.github.io/gh-proxy/)、 [GitHub 文件加速 (99988866.xyz)](https://gh.api.99988866.xyz/) 、[GitHub 文件加速 - Moeyy](https://moeyy.cn/gh-proxy)  
 
 #### GitMirror
 
@@ -61,13 +57,7 @@ wget https://ghproxy.com/https://raw.githubusercontent.com/stilleshan/ServerStat
 
 - `GIS` 将 `gist.githubusercontent.com` 替换为 `gist.gitmirror.com`
 
-#### RAW 加速
-
-**raw.staticdn.net**
-
-将 raw.githubusercontent.com 替换为 raw.staticdn.net 
-
-**jsDelivr** 
+#### **jsDelivr** RAW 加速
 
 `https://cdn.jsdelivr.net/gh/<用户名>/<仓库名>@<发布版本号>/<文件路径>` [^jsdelivr]  
 
@@ -79,19 +69,46 @@ https://gcore.jsdelivr.net/gh/
 https://purge.jsdelivr.net/gh/
 ```
 
-#### 其它方式
-
-[GitHub 文件加速 - Moeyy](https://moeyy.cn/gh-proxy)、[ fastgit.org](https://hub.fastgit.org/) 
-
 ### serctl网站下载加速
 
 [https://d.serctl.com/](https://d.serctl.com/)
 
 ### 自建服务
 
-#### 开源服务
+#### Cloudflare
 
-[gh-proxy](https://github.com/hunshcn/gh-proxy)、
+[gh-proxy: cf-worker版本部署](https://github.com/hunshcn/gh-proxy?tab=readme-ov-file#cf-worker版本部署)  
+[gaboolic/cloudflare-reverse-proxy: cloudflare反向代理](https://github.com/gaboolic/cloudflare-reverse-proxy)  
+[使用cloudflare制作GitHub“镜像站” - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/445303816)  
+[利用CloudFlare的Workers和Pages反代Github并缓存实现Github文件加速访问](https://cloud.tencent.com/developer/article/2211557)  
+
+```javascript
+export default {
+  async fetch(request, env, ctx) {
+    const pathname = new URL(request.url).pathname;
+    const pathparts = pathname.replace(/^\/+|\/+$/g,'').split('/');
+
+    if(pathparts.length < 2) {
+      return new Response(`Page not found ${JSON.stringify(pathname)}`, {
+        status: 404
+      });
+    }
+
+    const targetUrl = 'https://github.com';
+    const response = await fetch(targetUrl + pathname, {
+      method: request.method,
+      headers: request.headers,
+      body: request.body
+    });
+
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers: response.headers
+    });
+  },
+};
+```
 
 #### Nginx
 

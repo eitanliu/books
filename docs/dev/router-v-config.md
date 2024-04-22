@@ -15,7 +15,13 @@ nginx 反代配置匹配
 
 ### ssl 证书生成  
 
-[使用openssl创建https证书-腾讯云开发者社区](https://cloud.tencent.com/developer/article/1548350)
+[用acme.sh帮你免费且自动更新的HTTPS证书，省时又省力 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/347064501)  
+
+```shell
+curl https://get.acme.sh | sh
+```
+
+[使用openssl创建https证书-腾讯云开发者社区](https://cloud.tencent.com/developer/article/1548350)  
 
 ```shell
 # RSA 证书
@@ -44,6 +50,8 @@ openssl x509 -req -in ecdsa.csr -signkey ecdsa.key -out ecdsa.pem -days 36500
 # 步骤四：CA证书由 pem 格式转为 der 格式
 openssl x509 -outform der -in ecdsa.pem -out ecdsa.der
 ```
+
+
 
 ## Example
 
