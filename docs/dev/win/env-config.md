@@ -215,7 +215,7 @@ git config --global https.proxy http://<proxy_host>:<proxy_port>
 New-ItemProperty -Path "HKCU:\Environment" -Name "JAVA_HOME" -PropertyType "ExpandString" -Value "%USERPROFILE%\.jdks\temurin-17.0.9" -Force
 New-ItemProperty -Path "HKCU:\Environment" -Name "CLASSPATH" -PropertyType "ExpandString" -Value ".;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;" -Force
 $env:_OldUPath = (reg query 'HKCU\Environment' /v Path) -split "`n" | Where-Object { $_ -match '\s*Path\s*REG_EXPAND_SZ\s*(.+)'} | ForEach-Object { $Matches[1] }
-New-ItemProperty -Path "HKCU:\Environment" -Name "Path" -PropertyType "ExpandString" -Value "%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;$env:_OldUPath" -Force
+New-ItemProperty -Path "HKCU:\Environment" -Name "Path" -PropertyType "ExpandString" -Value "$env:_OldUPath;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin" -Force
 ```
 @tab CMD
 
@@ -224,7 +224,7 @@ New-ItemProperty -Path "HKCU:\Environment" -Name "Path" -PropertyType "ExpandStr
 setx JAVA_HOME ^%USERPROFILE^%\.jdks\temurin-17.0.9
 setx CLASSPATH .;^%JAVA_HOME^%\lib\dt.jar;^%JAVA_HOME^%\lib\tools.jar;
 for /f "tokens=3,*" %i in ('reg query "HKCU\Environment" /v Path ^| findstr /r /c:"^[ ]*Path"') do set "_OldUPath=%i"
-setx Path ^%JAVA_HOME^%\bin;^%JAVA_HOME^%\jre\bin;%_OldUPath%
+setx Path %_OldUPath%;^%JAVA_HOME^%\bin;^%JAVA_HOME^%\jre\bin
 ```
 
 :::
@@ -238,8 +238,8 @@ setx Path ^%JAVA_HOME^%\bin;^%JAVA_HOME^%\jre\bin;%_OldUPath%
 ```powershell
 New-ItemProperty -Path "HKCU:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" -Name "JAVA_HOME" -PropertyType "ExpandString" -Value "%__MY_DEVSOFTWARE%\JDK\current" -Force
 New-ItemProperty -Path "HKCU:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" -Name "CLASSPATH" -PropertyType "ExpandString" -Value ".;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;" -Force
-$env:_OldPath = (reg query 'reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' /v Path) -split "`n" | Where-Object { $_ -match '\s*Path\s*REG_EXPAND_SZ\s*(.+)'} | ForEach-Object { $Matches[1] }
-New-ItemProperty -Path "HKCU:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" -Name "Path" -PropertyType "ExpandString" -Value "$env:_OldPath;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;" -Force
+$env:_OldPath = (reg query 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' /v Path) -split "`n" | Where-Object { $_ -match '\s*Path\s*REG_EXPAND_SZ\s*(.+)'} | ForEach-Object { $Matches[1] }
+New-ItemProperty -Path "HKCU:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" -Name "Path" -PropertyType "ExpandString" -Value "$env:_OldPath;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin" -Force
 ```
 
 @tab CMD
@@ -250,7 +250,7 @@ mklink /D "%__MY_DEVSOFTWARE%\JDK" "%USERPROFILE%\.jdks\temurin-17.0.9"
 setx JAVA_HOME ^%__MY_DEVSOFTWARE^%\JDK\current /M
 setx CLASSPATH .;^%JAVA_HOME^%\lib\dt.jar;^%JAVA_HOME^%\lib\tools.jar; /M
 for /f "tokens=3,*" %i in ('reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v Path ^| findstr /r /c:"^[ ]*Path"') do set "_OldPath=%i"
-setx Path %_OldPath%;^%JAVA_HOME^%\bin;^%JAVA_HOME^%\jre\bin; /M
+setx Path %_OldPath%;^%JAVA_HOME^%\bin;^%JAVA_HOME^%\jre\bin /M
 ```
 
 :::
@@ -308,7 +308,7 @@ setx PUB_CACHE "%FLUTTER_PUB_CACHE%"
 # setx FLUTTER_ROOT "%FLUTTER_HOME%"
 # setx DART_HOME "%FLUTTER_HOME_DART%"
 
-$env:_OldUPath = (reg query 'reg query "HKCU\Environment' /v Path) -split "`n" | Where-Object { $_ -match '\s*Path\s*REG_EXPAND_SZ\s*(.+)'} | ForEach-Object { $Matches[1] }
+$env:_OldUPath = (reg query 'HKCU\Environment' /v Path) -split "`n" | Where-Object { $_ -match '\s*Path\s*REG_EXPAND_SZ\s*(.+)'} | ForEach-Object { $Matches[1] }
 setx Path "$env:_OldUPath;%FLUTTER_HOME%\bin;%FLUTTER_HOME_DART%\bin;%FLUTTER_PUB_CACHE%\bin"
 ```
 

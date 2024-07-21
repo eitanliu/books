@@ -1,3 +1,5 @@
+# 软件配置
+
 [网络存储文件共享之WebDAV-CSDN博客](https://blog.csdn.net/ghdqfhw/article/details/113965986)
 
 ```
@@ -41,3 +43,7 @@ HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows
 
 - `1` 关闭 Windows Copilot 功能
 - `0` 打开 Windows Copilot 功能
+
+[[idea 插件\] 修复Win11 微软中文输入法占用idea shift f6](https://hk.v2ex.com/t/1030762)  
+[win11 新版输入法shift+f6快捷键占用](https://answers.microsoft.com/zh-hans/windows/forum/all/win11/1f548aa0-5344-4ac4-83c8-afc28212d5d6)  
+[Windows11 恢复完整右键经典菜单](https://cloud.tencent.com/developer/article/2187050)  
