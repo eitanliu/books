@@ -1,0 +1,4 @@
+import{_ as e}from"./plugin-vue_export-helper-x3n3nnut.js";import{o as a,c as t,e as i}from"./app-bXitiLUE.js";const s={},n=i(`<div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>Execution failed for task &#39;:app:hiltAggregateDepsDebug&#39;.
+&gt; A failure occurred while executing dagger.hilt.android.plugin.task.AggregateDepsTask$WorkerAction
+   &gt; &#39;java.lang.String com.squareup.javapoet.ClassName.canonicalName()&#39;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>https://github.com/google/dagger/issues/3068</p>`,2),r=[n];function c(o,l){return a(),t("div",null,r)}const u=e(s,[["render",c],["__file","dagger.html.vue"]]);export{u as default};
