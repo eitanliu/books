@@ -13,3 +13,5 @@
 
 [OkHttpWebViewClient.java](https://github.com/classycodeoss/nfc-sockets/blob/master/android/NFCSockets/app/src/main/java/com/classycode/nfcsockets/okhttp/OkHttpWebViewClient.java)  
 [Share cookies between WebView and OkHttpClient](https://gist.github.com/jesty/e934314cae3d2014c6fa46ab64f3904e)  
+[kiwibrowser/src](https://github.com/kiwibrowser/src)  
+[mozilla-mobile/](https://github.com/mozilla-mobile/firefox-android)  
