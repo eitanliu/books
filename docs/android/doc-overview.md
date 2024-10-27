@@ -10,7 +10,12 @@
 [Compose](https://developer.android.com/compose)、[Jetpack ](https://developer.android.com/jetpack)、[Kotlin](https://developer.android.com/kotlin)  
 [Android KTK 扩展列表](https://developer.android.com/kotlin/ktx/extensions-list)、[Parcelable 生成器](https://developer.android.com/kotlin/parcelize)  
 
+## Develop
+
+[Core Ares](https://developer.android.com/develop/core-areas)、基于View界面开发 [views-based workflows](https://developer.android.com/develop/ui/views/layout/declaring-layout)
+
 ## Studio
+
 可使用的 Java API [JDK compileSdk](https://developer.android.com/build/jdks#compileSdk) `脱糖` [ desugaring](https://developer.android.com/studio/write/java8-support)  
 8 (API 26) 以下通过脱糖获得 Java 8 及更高版本 API [Java 8+ APIs available through desugaring](https://developer.android.com/studio/write/java8-support-table)  
 13 (API 33) 以下通过脱糖提供的 Java 11 及更高版本 API [Java 11+ APIs available through desugaring](https://developer.android.com/studio/write/java11-default-support-table)  
