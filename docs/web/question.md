@@ -11,6 +11,11 @@
 
 [typeof](https://github.com/liubin915249126/javascript/blob/master/interview/ES5/typeof.md)
 
+## 执行字符串代码
+
+[@typescript-eslint/no-implied-eval](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide_no-implied-eval-V5)
+
+
 ## 监听网络请求
 [VConsole源码分析与思考の初始化](https://juejin.cn/post/6844904133363761159)  
 [vConsole fetch.proxy.ts](https://github.com/Tencent/vConsole/blob/dev/src/network/fetch.proxy.ts)  
