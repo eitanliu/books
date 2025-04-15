@@ -34,3 +34,9 @@
 ### Widget
 
 [AppWidget](https://developer.android.com/develop/ui/views/appwidgets)
+
+
+
+### Gradle
+
+[plugin 8.2.0 JDK path](https://developer.android.com/build/releases/past-releases/agp-8-2-0-release-notes#jdk-macro)

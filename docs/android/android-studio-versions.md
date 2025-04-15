@@ -58,7 +58,7 @@
 
 ## 参考
 
-[Android Studio 的历史版本](https://developer.android.com/studio/releases/past-releases?hl=zh-cn)  
+[Android Studio 的历史版本](https://developer.android.com/studio/releases?hl=zh-cn)  
 [Android Gradle 插件版本说明](https://developer.android.com/studio/releases/gradle-plugin?hl=zh-cn)  
 [Android Studio 历史版本下载](https://developer.android.com/studio/archive?hl=zh-cn)  
 [Maven Repository AGP versions](https://mvnrepository.com/artifact/com.android.tools.build/gradle?repo=google)  
