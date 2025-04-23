@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-4a3f7a35","path":"/kotlin/","title":"Kotlin","lang":"zh-CN","frontmatter":{"title":"Kotlin","order":1,"dir":{"order":1}},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{t as data};
