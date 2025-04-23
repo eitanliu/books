@@ -30,7 +30,8 @@
 
 [手动实现布局Transitions动画-第一部分](https://github.com/bboyfeiyu/android-tech-frontier/blob/master/issue-16/手动实现布局Transitions动画-第一部分.md)
 
-[深入浅出Android 新特性-Transition-Part-1](https://github.com/bboyfeiyu/android-tech-frontier/tree/master/others/深入浅出Android 新特性-Transition-Part-1)  
-[深入浅出Android 新特性-Transition-Part-2](https://github.com/bboyfeiyu/android-tech-frontier/tree/master/others/深入浅出Android 新特性-Transition-Part-2)  
-[深入浅出Android 新特性-Transition-Part-3a](https://github.com/bboyfeiyu/android-tech-frontier/blob/master/issue-7/深入浅出Android新特性-Transition-Part-3a)  
-[深入浅出Android 新特性-Transition-Part-3b](https://github.com/bboyfeiyu/android-tech-frontier/blob/master/issue-7/深入浅出Android新特性-Transition-Part-3b)  
+[深入浅出Android 新特性-Transition-Part-2](https://github.com/bboyfeiyu/android-tech-frontier/tree/master/others/深入浅出Android 新特性-Transition-Part-2)
+
+[深入浅出Android 新特性-Transition-Part-3a](https://github.com/bboyfeiyu/android-tech-frontier/blob/master/issue-7/深入浅出Android新特性-Transition-Part-3a)
+
+[深入浅出Android 新特性-Transition-Part-3b](https://github.com/bboyfeiyu/android-tech-frontier/blob/master/issue-7/深入浅出Android新特性-Transition-Part-3b)

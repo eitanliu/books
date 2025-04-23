@@ -14,8 +14,8 @@ sh Miniconda3-latest-MacOSX-arm64.sh
 ### 创建激活Conda环境
 
 ```shell
-conda create -n modelscope python=3.9
-conda activate modelscope
+conda create -n llm python=3.9
+conda activate llm
 ```
 
 **查看环境**
@@ -27,7 +27,23 @@ conda info --envs | grep "*"
 **删除环境**
 
 ```shell
-conda remove --name modelscope --all
+conda remove --name llm --all
+```
+
+### 安装 modelscope
+
+`audio,cv` 版本不兼容需要单独环境安装
+
+```shell
+# audio,cv == 1.25.0
+# nlp,multi-modal,science == 1.6.1
+# cv,audio,nlp,multi-modal,science
+
+pip install "modelscope[nlp,multi-modal,science]" -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html
+
+pip install "modelscope[audio]" -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html
+
+pip install "modelscope[cv]" -f https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html
 ```
 
 ### 安装Mac Pytorc
@@ -35,8 +51,8 @@ conda remove --name modelscope --all
 PyTorch 从 **1.12** 起对 Apple 的 M 系列芯片供了支持Metal Performance Shaders（MPS）后端来达成 GPU 加速
 
 ```shell
-#pip install torch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0
-pip3 install torch torchvision torchaudio
+#pip install torch==2.6.0 torchaudio==2.6.0 torchvision==0.21.0
+pip install torch torchaudio torchvision
 ```
 
 验证是否支持 GPU 加速
@@ -46,6 +62,12 @@ python -c "import torch; print(torch.backends.mps.is_available())"
 ```
 
 ### 安装 tensorflow
+
+```shell
+python -m pip install tensorflow-macos tensorflow-metal
+#python -m pip install tensorflow-macos==2.16.2
+#python -m pip install tensorflow-metal==1.2.0
+```
 
 ```shell
 conda install -c apple tensorflow-deps
@@ -62,6 +84,7 @@ python -c "import tensorflow as tf; print(len(tf.config.list_physical_devices('G
 #### 安装 JAX
 
 ```shell
+# jax==0.4.30 flax==0.8.5
 pip install jax flax
 ```
 
@@ -89,16 +112,13 @@ audio 需要安装 llvm
 brew install llvm
 ```
 
-### 安装 modelscope
+### modelscope 2.6.1
+
+device should be either `cpu, cuda, gpu, gpu:X or cuda:X` where X is the ordinal for gpu device.
 
 ```shell
-# nlp,cv,audio,multi-modal,science
-pip install "modelscope[nlp,multi-modal,science]" -f https://modelscope.oss-cn-lbeijing.aliyuncs.com/releases/repo.html
+python -c "from modelscope.pipelines import pipeline;print(pipeline('word-segmentation', device='gpu')('今天天气不错，适合 出去游玩'))"
 ```
-
-### modelscope
-
-AssertionError: device should be either cpu, cuda, gpu, gpu:X or cuda:X where X is the ordinal for gpu device.
 
 ### Huggingface
 
