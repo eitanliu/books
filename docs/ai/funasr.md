@@ -20,7 +20,37 @@
 
 [VITS](https://huggingface.co/docs/transformers/model_doc/vits)  
 [facebook/mms-tts-nan](https://huggingface.co/facebook/mms-tts-nan)  
+[csukuangfj/vits-mms-nan](https://huggingface.co/csukuangfj/vits-mms-nan)  
+
 
 [TSukiLen/whisper-medium-chinese-tw-minnan](https://huggingface.co/TSukiLen/whisper-medium-chinese-tw-minnan)  
 [TSukiLen/whisper-small-chinese-tw-minnan](https://huggingface.co/TSukiLen/whisper-small-chinese-tw-minnan)  
+
+生成的音频
+
+```python
+import torch
+from transformers import VitsTokenizer, VitsModel, set_seed
+
+tokenizer = VitsTokenizer.from_pretrained("facebook/mms-tts-nan")
+model = VitsModel.from_pretrained("facebook/mms-tts-nan")
+
+inputs = tokenizer(text="wo shi shui", return_tensors="pt")
+
+# set_seed(555)
+
+with torch.no_grad():
+   outputs = model(**inputs)
+
+waveform = outputs.waveform[0]
+```
+
+保存
+
+```python
+import torchaudio
+
+# 保存为 WAV 文件（默认采样率 16kHz）
+torchaudio.save("output.wav", waveform.unsqueeze(0), model.config.sampling_rate)
+```
 

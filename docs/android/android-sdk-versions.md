@@ -48,7 +48,7 @@
 
 ## 参考
 
-[Which Java APIs can I use in my Java or Kotlin source code?](https://developer.android.com/build/jdks?hl=zh-cn#compileSdk)  
+[Which Java APIs can I use in my Java or Kotlin source code?](https://developer.android.com/build/jdks?#compileSdk)  
 [AOSP>Getting Started>Supporting Older Versions](https://source.android.com/docs/setup/start/older-versions#jdk)  
 [Android各版本对应的SDK及JDK版本要求](https://blog.csdn.net/j086924/article/details/122866386)  
 

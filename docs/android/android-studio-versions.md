@@ -14,7 +14,7 @@
 | Bumblebee \| 2021.1.1    | 3.2-7.1      |
 | Arctic Fox \| 2020.3.1   | 3.1-7.0      |
 
-[AGP插件对应的Gradle版本](https://developer.android.com/studio/releases/gradle-plugin?hl=zh-cn#updating-gradle)  
+[AGP插件对应的Gradle版本](https://developer.android.com/studio/releases/gradle-plugin?#updating-gradle)  
 
 | 插件版本 | 所需的最低 Gradle 版本 |
 | :------- | :--------------------- |
@@ -58,7 +58,7 @@
 
 ## 参考
 
-[Android Studio 的历史版本](https://developer.android.com/studio/releases?hl=zh-cn)  
-[Android Gradle 插件版本说明](https://developer.android.com/studio/releases/gradle-plugin?hl=zh-cn)  
-[Android Studio 历史版本下载](https://developer.android.com/studio/archive?hl=zh-cn)  
+[Android Studio 的历史版本](https://developer.android.com/studio/releases)  
+[Android Gradle 插件版本说明](https://developer.android.com/studio/releases/gradle-plugin)  
+[Android Studio 历史版本下载](https://developer.android.com/studio/archive)  
 [Maven Repository AGP versions](https://mvnrepository.com/artifact/com.android.tools.build/gradle?repo=google)  

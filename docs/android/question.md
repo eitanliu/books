@@ -39,4 +39,6 @@
 
 ### Gradle
 
-[plugin 8.2.0 JDK path](https://developer.android.com/build/releases/past-releases/agp-8-2-0-release-notes#jdk-macro)
+[Create a software component with a single publication variant](https://developer.android.com/build/publish-library/configure-pub-variants#single-pub-var)  
+[Past Android Gradle plugin releases](https://developer.android.com/build/releases/past-releases)  
+[Android Gradle Plugin 8.2.0 (Nov 2023)](https://developer.android.com/build/releases/past-releases/agp-8-2-0-release-notes#jdk-macro)

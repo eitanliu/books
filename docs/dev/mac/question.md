@@ -2,7 +2,7 @@
 
 **获取应用ID** `osascript -e 'id of app "Android Studio"'`
 
-[Mac 如何只保留一个输入法](https://github.com/0xAiKang/Note/blob/master/Mac/Mac 如何只保留一个输入法.md)
+[Mac 如何只保留一个输入法](https://github.com/0xAiKang/Note/blob/master/Mac/Mac%20如何只保留一个输入法.md)
 
 ###  Sequoia 15.3.2 自带Python 报错 not on PATH
 
