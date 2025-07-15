@@ -2,24 +2,25 @@
 
 | 平台版本 | SDK版本 | 版本名称 | JDK版本 |
 | ----- | ----- | ----- | ----- |
-| Android 14 | 34 |  | 11 |
-| Android 13.0              | 33 | T  | 11 |
-| Android 12.0              | 31 | S  | 11 |
-| Android 11.0              | 30 | R  | 8 |
-| Android 10.0              | 29 | Q  | 8 |
-| Android 9.0               | 28 | Pie | 8 |
-| Android 8.1               | 27 | Oreo | 8 |
-| Android 8.0               | 26 | Oreo | 8 |
-| Android 7.1               | 25 | Nougat | 8 |
-| Android 7.0               | 24 | Nougat | 8 |
-| Android 6.0               | 23 | Marshmallow | 7 |
-| Android 5.1               | 22 | Lollipop | 7 |
-| Android 5.0               | 21 | Lollipop | 7 |
+| Android 15   | 35 |  | 17 |
+| Android 14   | 34 |  | 17 |
+| Android 13.0 | 33 | T  | 11 |
+| Android 12.0 | 31 | S  | 11 |
+| Android 11.0 | 30 | R  | 8 |
+| Android 7.0  | 24 | Nougat | 8 |
+| Android 6.0  | 23 | Marshmallow | 7 |
 <details> 
 <summary>旧版</summary>
 
 | 平台版本 | SDK版本 | 版本名称 | JDK版本 |
 | ----- | ----- | ----- | ----- |
+| Android 10.0              | 29 | Q  | 8 |
+| Android 9.0               | 28 | Pie | 8 |
+| Android 8.1               | 27 | Oreo | 8 |
+| Android 8.0               | 26 | Oreo | 8 |
+| Android 7.1               | 25 | Nougat | 8 |
+| Android 5.1               | 22 | Lollipop | 7 |
+| Android 5.0               | 21 | Lollipop | 7 |
 | Android 4.4               | 19 | KITKAT | 6 |
 | Android 4.3               | 18 | JELLY_BEAN_MR2 | 6 |
 | Android 4.2, 4.2.2        | 17 | JELLY_BEAN_MR1 | 6 |
@@ -48,7 +49,7 @@
 
 ## 参考
 
+[Android Releases](https://developer.android.com/about/versions)  
 [Which Java APIs can I use in my Java or Kotlin source code?](https://developer.android.com/build/jdks?#compileSdk)  
 [AOSP>Getting Started>Supporting Older Versions](https://source.android.com/docs/setup/start/older-versions#jdk)  
-[Android各版本对应的SDK及JDK版本要求](https://blog.csdn.net/j086924/article/details/122866386)  
 

@@ -4,7 +4,7 @@
 `指南` [Guides](https://developer.android.com/guide) `示例` [Samples](https://developer.android.com/samples)  `参考文档` [Refrence](https://developer.android.com/reference) 
 
 ## Get Started
-`概览` [Overview](https://developer.android.com/get-started/overview) `训练`  [Training courses](https://developer.android.com/courses) `教程` [Codelabs Tutorials](https://developer.android.com/get-started/codelabs)  
+`概览` [Overview](https://developer.android.com/get-started/overview) `课程`  [Training courses](https://developer.android.com/courses) `教程` [Codelabs Tutorials](https://developer.android.com/get-started/codelabs)  
 `开发工具`  [Studio](https://developer.android.com/studio)、`版本兼容特性` [Version](https://developer.android.com/about/versions)、`架构简介`  [Architecture](https://developer.android.com/topic/architecture/intro)  
 
 [Compose](https://developer.android.com/compose)、[Jetpack ](https://developer.android.com/jetpack)、[Kotlin](https://developer.android.com/kotlin)  

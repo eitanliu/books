@@ -16,6 +16,7 @@
 [kmp-awesome](https://github.com/terrakok/kmp-awesome)  
 [KMP-App-Template-Native](https://github.com/Kotlin/KMP-App-Template-Native)  
 [Android Kotlin Multiplatform Samples](https://github.com/android/kotlin-multiplatform-samples)  
+[Jetpack Compose Samples](https://github.com/android/compose-samples)  
 [skiko](https://github.com/JetBrains/skiko)  
 [kotlin-libui](https://github.com/msink/kotlin-libui)  
 
@@ -23,3 +24,7 @@
 [Support for kotlin-native for Mingw_XX](https://youtrack.jetbrains.com/issue/SKIKO-446/Support-for-kotlin-native-for-MingwXX)  
 [Support Kotlin/Native on Windows(x86_64) and Linux(x86_64)](https://youtrack.jetbrains.com/issue/SKIKO-611)  
 [Add EGL support](https://youtrack.jetbrains.com/issue/SKIKO-918/Add-EGL-support)  
+
+[Kotlin/Wasm](https://kotlinlang.org/docs/wasm-overview.html)  
+[Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples/tree/main)  
+[WasmEdge](https://github.com/WasmEdge/WasmEdge)  
